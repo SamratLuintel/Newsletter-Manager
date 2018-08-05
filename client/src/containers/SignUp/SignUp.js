@@ -4,7 +4,7 @@ import formFields from './formFields';
 import SignUpField from './SignUpField/SignUpField';
 import {connect} from 'react-redux';
 import * as actions from '../../store/actions/actionsIndex';
-
+import {withRouter} from 'react-router-dom';
 import axios from 'axios';
 import _ from 'lodash';
 
@@ -21,9 +21,9 @@ class SignUp extends Component {
     }
 
     renderForm(){
-        const {handleSubmit,signup} = this.props;
+        const {handleSubmit,signupFormSubmit, history} = this.props;
         return (
-            <form onSubmit={handleSubmit(signup)}>
+            <form onSubmit={handleSubmit(signupFormSubmit)}>
                 {this.renderFields()}
                 <input type="submit" />
             </form>
@@ -31,12 +31,12 @@ class SignUp extends Component {
     }
 
     async componentDidMount() {
-        console.log("Component did mount is called");
-        const authId = await axios.get('/auth/authId');
-        if(!authId.data){
+        const res = await axios.get('/auth/authId');
+        console.log(res.data)
+        if(!res.data.authId){
 
         }else {
-            this.setState({authId})
+             this.setState({authId:res.data.authId})
         }
     }
     render() {
@@ -48,6 +48,7 @@ class SignUp extends Component {
     }
 }
 
+
 function validate(values) {
     const errors = {};
     _.each(formFields,({name})=>{
@@ -58,4 +59,4 @@ function validate(values) {
     return errors;
 }
 
-export default connect(null,actions)(reduxForm({validate, form: 'signup' })(SignUp));
+export default connect(null,actions)(reduxForm({validate, form: 'signup' })(withRouter(SignUp)));
