@@ -18,7 +18,9 @@ app.use(bodyParser.json());
 mongoose.connect(keys.mongoURI).then(()=>console.log("Connected to Mongo server"));
 require("./services/passport");
 require('./models/User');
+require('./models/Template');
 require("./routes/authRoutes")(app);
+require("./routes/templateRoutes")(app);
 
 const port = 5000;
 
