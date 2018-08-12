@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
-
+import "./Header.scss"
 class Header extends Component {
     render() {
         return (
-            <div style={{display:'flex',flexDirection:'row',width:"200px",justifyContent:'space-between'}}>
-                <a href="/auth/google">Login With Google</a>
+            <div className="Header">
+                <div className="Header__brand">
+                    ReactMunch
+                </div>
+                <ul className="navbar">
+                    <li className="navbar__navitem">Home</li>
+                    <li className="navbar__navitem">Features</li>
+                    <li className="navbar__navitem">
+                        <a href="/auth/google" className="signin">Sign In</a>
+                    </li>
+                </ul>
+              
                 {this.props.token && <p>Logged in</p>}
             </div>
         );

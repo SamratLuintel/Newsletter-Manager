@@ -17,7 +17,7 @@ class CreateTemplate extends Component {
     }
     exportHtml = () => {
         this.editor.exportHtml(data => {
-          const { design, html } = data
+          const {  html } = data
           console.log('exportHtml', html)
         })
     }

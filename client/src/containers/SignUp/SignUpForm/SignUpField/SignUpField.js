@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 const SignUpField = ({input,label,meta:{touched,error}}) => {
     return (
-        <div>
-            <label>{label}</label>
-            <input {...input} type="text"/>
+        <div className="formField">
+            <label className="formField__label">{label}</label>
+            <input className="formField__input" {...input} placeholder={label} type="text"/>
             {touched && error &&
                 <span>{error}</span>
             }

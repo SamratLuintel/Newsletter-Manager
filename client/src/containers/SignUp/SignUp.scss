@@ -1,0 +1,78 @@
+$form-width:500px;
+$primaryColor:#D9EDF7;
+$field-marginBottom:20px;
+
+$button-color:#286090;
+
+@mixin btn{
+    padding:6px 12px;
+    font-size:14px;
+    font-weight: normal;
+    border:1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.signup{
+    margin: 0 auto;
+    margin-top:50px; 
+    max-width:$form-width;
+    border:1px solid $primaryColor;
+}
+
+.signup__head{
+    background-color: $primaryColor;
+    height:20px;
+    box-sizing: content-box;
+    color:#3177AF;
+    padding:12px 15px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.signup__body{
+    padding:20px 40px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form__submit{
+    @include btn;
+    background-color: $button-color;
+    border-color:#122b40;
+    color:#fff;
+}
+
+.form__cancel{
+    @include btn;
+    margin-left:20px;
+}
+
+.formField{
+    margin-bottom: $field-marginBottom;
+    display:flex;
+    justify-content: space-between;
+}
+.formField__label{
+    font-weight: 700;
+    font-size:14px;
+    color:#333333;
+    display:inline-flex;
+    align-self:center;
+    justify-content: flex-end;
+    margin-right:20px;
+    text-align: right;
+    flex-grow: 1;
+}
+
+.formField__input{
+    height:24px;
+    padding:5px 22px;
+    font-size:14px;
+    max-width:250px;
+    flex-grow: 3;
+    color:#555;
+    background-color: #fff;
+    border:1px solid #ccc;
+    border-radius:4px;
+}

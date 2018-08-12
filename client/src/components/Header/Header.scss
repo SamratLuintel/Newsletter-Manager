@@ -1,0 +1,36 @@
+$header-height:50px;
+$header-color:#FEFEFE;
+$navitem-paddingX:20px;
+$navitem-paddingY:15px;
+$navitem-color: #424242;
+
+.Header{
+    display:flex;
+    width:'100%';
+    box-sizing: content-box;
+    height:$header-height;
+    background-color: $header-color;
+    box-shadow:0 1px 3px rgba(0,0,0,0.1);
+    justify-content: space-between;
+}
+
+.navbar{
+    list-style: none;
+    display:flex;
+}
+
+.navbar__navitem{
+    padding: $navitem-paddingY $navitem-paddingX;
+    color: $navitem-color;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.signin{
+    text-decoration: none;
+    border:1px solid rgba(66,66,66,0.2);
+    padding:8px 17px;
+    border-radius:18px;
+    white-space: nowrap;
+    vertical-align: top;
+}
