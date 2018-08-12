@@ -9,6 +9,9 @@
     "/auth/signup": {
       "target": "http://localhost:5000"
     },
+    "/auth/getToken": {
+      "target": "http://localhost:5000"
+    },
     "/auth/*": {
       "target": "http://localhost:5000"
     },

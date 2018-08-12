@@ -1,0 +1,26 @@
+$campaignManager-width: 1100px;
+
+.CampaignManager {
+    max-width:$campaignManager-width;
+    margin:0 auto;
+}
+
+.CampaignManager__header{
+    display: flex;
+    width:100%;
+    justify-content: space-between;
+}
+
+.CampaignManager__sidebar{
+    width:150px;
+}
+
+.CampaignManager__input{
+    width:400px;
+    height:30px;
+}
+
+.CampaignManager__body{
+    margin-top:50px;
+    display:flex;
+}

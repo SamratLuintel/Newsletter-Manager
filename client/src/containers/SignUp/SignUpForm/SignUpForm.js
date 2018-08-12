@@ -21,16 +21,16 @@ class SignUpForm extends Component {
     }
 
     renderForm(){
-        const {handleSubmit,signupFormSubmit, history} = this.props;
+        const {handleSubmit,signupFormSubmit,history} = this.props;
+        //signupFormSubmit is an action creator coming from store
         return (
-            <form onSubmit={handleSubmit(signupFormSubmit)} className="form">
+            <form onSubmit={handleSubmit((values)=>signupFormSubmit(values,history))} className="form">
                 {this.renderFields()}
                 <input type="submit" className="form__submit" />
                 <button className="form__cancel" >Cancel</button>
             </form>
         )
     }
-
     async componentDidMount() {
         const res = await axios.get('/auth/authId');
         console.log(res.data)

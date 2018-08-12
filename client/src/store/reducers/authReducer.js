@@ -1,8 +1,9 @@
-import {FETCH_TOKEN} from '../actions/types';
+import {UPDATE_TOKEN} from '../actions/types';
+
 
 export default (state = null, action) => {
     switch (action.type) {
-        case FETCH_TOKEN:
+        case UPDATE_TOKEN:
             return {...state,token:action.payload}
         break;
             

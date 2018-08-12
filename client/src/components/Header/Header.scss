@@ -1,5 +1,6 @@
 $header-height:50px;
-$header-color:#FEFEFE;
+$light-header-color:#FEFEFE;
+$dark-header-color:#F2F2F2;
 $navitem-paddingX:20px;
 $navitem-paddingY:15px;
 $navitem-color: #424242;
@@ -9,11 +10,17 @@ $navitem-color: #424242;
     width:'100%';
     box-sizing: content-box;
     height:$header-height;
-    background-color: $header-color;
     box-shadow:0 1px 3px rgba(0,0,0,0.1);
     justify-content: space-between;
 }
 
+.Header--light{
+    background-color: $light-header-color;
+}
+
+.Header--dark{
+    background-color:$dark-header-color;
+}
 .navbar{
     list-style: none;
     display:flex;

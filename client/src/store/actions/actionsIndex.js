@@ -1,23 +1,35 @@
 import axios from 'axios';
-import {FETCH_TOKEN} from './types';
+import {UPDATE_TOKEN,FETCH_TOKEN} from './types';
 
 //TODO security issue-- chaina chaina jiskya ho
-export const signupFormSubmit =(values, dispatch, props) =>dispatch=> {
-    dispatch(signup(values,props.history));
-}
-
-export const signup = (formValues,history) => async dispatch =>{
-    const response = await axios.post('/auth/signup',formValues);
+export const signupFormSubmit =(values,history) => async dispatch=> {
+    const response = await axios.post('/auth/signup',values);
     const token = response.data;
-    console.log(history);
     history.push('/');
-    dispatch(fetchToken(token));
+    localStorage.setItem('newsletterToken',token);
+    dispatch(updateToken(token));
 }
 
-export const fetchToken = (token)=>{
-    localStorage.setItem('token',token);
+export const fetchToken= () => async dispatch =>{
+    console.log("This line is called");
+    //Checking the token at first in local Storage
+    const token = localStorage.getItem('newsletterToken');
+    if(token)  return dispatch(updateToken(token));
+
+    //Sending the request to fetch the token from back end
+    try {
+        const response = await axios.get('/auth/getToken');
+        localStorage.setItem('newsletterToken',response.data);
+        dispatch(updateToken(response.data))
+    } catch(error){
+        dispatch(updateToken(null));
+    }
+
+}
+
+export const updateToken = (token)=>{
     return {
-        type:FETCH_TOKEN,
+        type:UPDATE_TOKEN,
         payload:token
     }
 }
