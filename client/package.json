@@ -17,6 +17,9 @@
     },
     "/templates/*": {
       "target": "http://localhost:5000"
+    },
+    "/user/campaigns":{
+      "target": "http://localhost:5000"
     }
   },
   "dependencies": {

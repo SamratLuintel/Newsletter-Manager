@@ -16,11 +16,19 @@ app.use(cors());
 app.use(bodyParser.json());
 
 mongoose.connect(keys.mongoURI).then(()=>console.log("Connected to Mongo server"));
-require("./services/passport");
+
+//loading the models
 require('./models/User');
 require('./models/Template');
+require('./models/Campaign');
+
+//loading the passport
+require("./services/passport");
+
+//loading the routes
 require("./routes/authRoutes")(app);
 require("./routes/templateRoutes")(app);
+require("./routes/campaignRoutes")(app);
 
 const port = 5000;
 

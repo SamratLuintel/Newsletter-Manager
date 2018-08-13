@@ -7,7 +7,7 @@ import Dashboard from './Dashboard/Dashboard';
 import Campaigns from './Campaigns/Campaigns';
 
 import { fetchToken} from '../store/actions/actionsIndex';
-import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux';
 
 import { connect } from 'react-redux';
 
