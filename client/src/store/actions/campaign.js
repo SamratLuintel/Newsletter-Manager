@@ -1,4 +1,8 @@
-import {UPDATE_CAMPAIGN,SET_CAMPAIGN_FILTER_TEXT} from './types';
+import {
+    UPDATE_CAMPAIGN,
+    SET_CAMPAIGN_FILTER_TEXT,
+    SET_CAMPAIGN_SORT_OPTION
+} from './types';
 import axios from 'axios';
 
 export const fetchCampaign = (token) => async dispatch=>{
@@ -22,6 +26,13 @@ export const updateCampaign = (campaigns)=> {
 export const setCampaignFilterText = (text)=>{
     return {
         type:SET_CAMPAIGN_FILTER_TEXT,
+        payload:text
+    }
+}
+
+export const setCampaignSortOption = (text)=>{
+    return {
+        type:SET_CAMPAIGN_SORT_OPTION,
         payload:text
     }
 }
