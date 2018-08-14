@@ -31,4 +31,8 @@ class Modal extends Component {
     }
 }
 
+export const closeModal = ()=>{
+    Modal.onClose()
+}
+
 export default Modal;

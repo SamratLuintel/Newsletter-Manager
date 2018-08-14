@@ -6,11 +6,14 @@ const passport = require('passport');
 const requireToken = passport.authenticate('jwt', { session: false });
 
 module.exports =(app)=>{
+
     app.get('/user/campaigns',requireToken,async (req,res)=>{
        const campaigns = await Campaign.find();
        res.send(campaigns);
     })
-    app.post('/user/campaigns/create',async (req,res)=>{
+
+    app.post('/user/campaigns/create', requireToken, async (req,res)=>{
+        console.log("This route is called");
         const {name} = req.body;
         if (name){
            await new Campaign({
