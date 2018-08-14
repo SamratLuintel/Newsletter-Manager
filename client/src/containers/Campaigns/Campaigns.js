@@ -4,22 +4,22 @@ import './Campaigns.scss';
 import SideBar from './SideBar/SideBar';
 import Actionbar from './ActionBar/ActionBar';
 import CampaignsLists from './CampaignsLists/CampaignsLists';
+import CreateCampaign from './CreateCampaign/CreateCampaign';
 
 class Campaigns extends Component {
-
-    renderListItemHeader() {
-        return (
-            <div className="CampaignManager__listItem__header">
-                Past Month(1)
-            </div>
-        )
-    }
 
     renderCampaignManagerHeader() {
         return (
             <div className="CampaignManager__header">
                 <h1>Campaigns</h1>
-                <button>Create Campaign</button>
+                <CreateCampaign />
+            </div>
+        )
+    }
+    renderListItemHeader() {
+        return (
+            <div className="CampaignManager__listItem__header">
+                Past Month(1)
             </div>
         )
     }
@@ -30,7 +30,7 @@ class Campaigns extends Component {
                 <div className="CampaignManager">
 
                     {this.renderCampaignManagerHeader()}
-                    
+
                     <div className="CampaignManager__body">
                         <SideBar />
                         <div className="CampaignManager__listOuter">
