@@ -4,7 +4,7 @@ import axios from "axios";
 
 //Fetches all the Templates and return an array of list
 export const fetchTemplates = token => async dispatch => {
-  const res = await axios.get("/user/campaigns", {
+  const res = await axios.get("/user/templates", {
     headers: {
       authorization: token
     }

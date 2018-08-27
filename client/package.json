@@ -15,6 +15,9 @@
     "/auth/*": {
       "target": "http://localhost:5000"
     },
+    "/user/templates/*": {
+      "target": "http://localhost:5000"
+    },
     "/user/templates/create": {
       "target": "http://localhost:5000"
     },

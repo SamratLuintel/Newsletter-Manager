@@ -12,18 +12,47 @@ module.exports = app => {
       .then(() => console.log("template is saved"));
   });
 
-  app.get("/user/templates", requireToken, async (req, res) => {
+  app.get("/user/templates", async (req, res) => {
     //Todo load the campaign of specific user
-    const campaigns = await Template.find();
-    res.send(campaigns);
+    const templates = await Template.find();
+    res.send(templates);
   });
 
-  app.get("user/templates/:id", async (req, res) => {
+  app.get("/user/templates/:id", async (req, res) => {
+    console.log("This template route is called");
     try {
       const template = await Template.findOne({ _id: req.params.id });
-      res.send(JSON.parse(template.json));
+      if (template) {
+        res.send({
+          template: JSON.parse(template.json),
+          name: template.name
+        });
+      } else {
+        res
+          .status(400)
+          .send({ message: "The template with provided id does not exist" });
+      }
     } catch (error) {
       res.status(400).send(error);
+    }
+  });
+
+  //@@desc Edits the templates
+  //@@access private
+  app.post("/user/templates/:id", async (req, res) => {
+    const { design, name } = req.body;
+    const templateJSON = JSON.stringify(design);
+    try {
+      const template = await Template.findByIdAndUpdate(req.params.id, {
+        json: templateJSON,
+        name: name
+      });
+      console.log(template);
+      res.status(200).send();
+    } catch (error) {
+      res.status(400).send({
+        message: "Some error occured while saving. Please try again later"
+      });
     }
   });
 };

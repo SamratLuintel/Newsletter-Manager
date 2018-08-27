@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 
 class TemplateLists extends Component {
   renderTemplateList = () => {
-    const { lists: campaignLists } = this.props.templates;
-    if (campaignLists) {
-      return campaignLists.map(({ name }) => {
+    const { lists: templateLists } = this.props.templates;
+    if (templateLists) {
+      return templateLists.map(({ name }) => {
         //make the use of individual template
         return <p>{name}</p>;
       });
@@ -20,7 +20,7 @@ class TemplateLists extends Component {
 }
 
 const mapStateToProps = state => ({
-  templates: state.campaigns,
+  templates: state.templates,
   auth: state.auth
 });
 

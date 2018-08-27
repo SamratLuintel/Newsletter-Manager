@@ -11,6 +11,7 @@ import { bindActionCreators } from "redux";
 import Templates from "./Templates/Templates";
 import { connect } from "react-redux";
 import CreateTemplate from "./Templates/CreateTemplate/CreateTemplate";
+import EditTemplate from "./EditTemplate/EditTemplate";
 
 class App extends Component {
   routeUnauthenticated() {
@@ -32,6 +33,7 @@ class App extends Component {
         <Route exact path="/campaigns/edit/:id" component={EditCampaign} />
         <Route exact path="/templates" component={Templates} />
         <Route exact path="/templates/create" component={CreateTemplate} />
+        <Route exact path="/templates/edit/:id" component={EditTemplate} />
       </div>
     );
   }
