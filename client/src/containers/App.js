@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import SignUp from "./SignUp/SignUp";
 import Landing from "./Landing/Landing";
-import CreateTemplate from "./Template/CreateTemplate/CreateTemplate";
 import EditCampaign from "./EditCampaign/EditCampaign";
 import Dashboard from "./Dashboard/Dashboard";
 import Campaigns from "./Campaigns/Campaigns";
-import { fetchCampaigns } from "../store/actions/actionsIndex";
+import { fetchCampaigns, fetchTemplates } from "../store/actions/actionsIndex";
 import { fetchToken } from "../store/actions/actionsIndex";
 import { bindActionCreators } from "redux";
-
+import Templates from "./Templates/Templates";
 import { connect } from "react-redux";
+import CreateTemplate from "./Templates/CreateTemplate/CreateTemplate";
 
 class App extends Component {
   routeUnauthenticated() {
@@ -22,6 +22,7 @@ class App extends Component {
     );
   }
 
+  //TODO Proxy issue should be fixed in /templates
   routeAuthenticated() {
     return (
       <div>
@@ -29,6 +30,8 @@ class App extends Component {
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/campaigns" component={Campaigns} />
         <Route exact path="/campaigns/edit/:id" component={EditCampaign} />
+        <Route exact path="/templates" component={Templates} />
+        <Route exact path="/templates/create" component={CreateTemplate} />
       </div>
     );
   }
@@ -49,9 +52,10 @@ class App extends Component {
   }
 
   static getDerivedStateFromProps = nextProps => {
-    //If the token exist and then it immediately fetches the campaigns
+    //If the token exist and then it immediately fetches the campaigns and tokens
     if (nextProps.auth && nextProps.auth.token) {
       nextProps.fetchCampaigns(nextProps.auth.token);
+      nextProps.fetchTemplates(nextProps.auth.token);
     }
   };
   componentDidMount = () => {
@@ -65,7 +69,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchToken: bindActionCreators(fetchToken, dispatch),
-  fetchCampaigns: bindActionCreators(fetchCampaigns, dispatch)
+  fetchCampaigns: bindActionCreators(fetchCampaigns, dispatch),
+  fetchTemplates: bindActionCreators(fetchTemplates, dispatch)
 });
 
 export default connect(

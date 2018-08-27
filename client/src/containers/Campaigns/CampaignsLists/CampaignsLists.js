@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 import moment from "moment";
-import { fetchCampaigns } from "../../../store/actions/actionsIndex";
 import Slat from "./Slat/Slat";
 
 class CampaignLists extends Component {
@@ -50,9 +48,6 @@ class CampaignLists extends Component {
       );
     }
   };
-  componentDidMount() {
-    this.props.fetchCampaigns(this.props.auth.token);
-  }
 
   render() {
     return (
@@ -64,14 +59,9 @@ class CampaignLists extends Component {
 }
 
 const mapStateToProps = state => ({
+  //Campaign is fetched in App.js file
   campaigns: state.campaigns,
   auth: state.auth
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchCampaigns: bindActionCreators(fetchCampaigns, dispatch)
-});
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CampaignLists);
+export default connect(mapStateToProps)(CampaignLists);
