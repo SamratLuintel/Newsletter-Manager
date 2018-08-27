@@ -1,0 +1,14 @@
+@import "./NameEditor/NameEditor";
+@import "./RecipientEditor/RecipientEditor";
+@import "./SenderEditor/SenderEditor";
+@import "./SubjectEditor/SubjectEditor";
+
+.c-CampaignEditor {
+  width: 700px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.c-CampaignEditor--border {
+  margin-top: 50px;
+}

@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
-import SignUp from './SignUp/SignUp'
-import Landing from './Landing/Landing';
-import CreateTemplate from './Template/CreateTemplate/CreateTemplate';
-import Dashboard from './Dashboard/Dashboard';
-import Campaigns from './Campaigns/Campaigns';
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import SignUp from "./SignUp/SignUp";
+import Landing from "./Landing/Landing";
+import CreateTemplate from "./Template/CreateTemplate/CreateTemplate";
+import EditCampaign from "./EditCampaign/EditCampaign";
+import Dashboard from "./Dashboard/Dashboard";
+import Campaigns from "./Campaigns/Campaigns";
+import { fetchCampaigns } from "../store/actions/actionsIndex";
+import { fetchToken } from "../store/actions/actionsIndex";
+import { bindActionCreators } from "redux";
 
-import { fetchToken} from '../store/actions/actionsIndex';
-import { bindActionCreators } from 'redux';
-
-import { connect } from 'react-redux';
-
-
+import { connect } from "react-redux";
 
 class App extends Component {
   routeUnauthenticated() {
@@ -20,7 +19,7 @@ class App extends Component {
         <Route exact path="/" component={Landing} />
         <Route exact path="/signup" component={SignUp} />
       </div>
-    )
+    );
   }
 
   routeAuthenticated() {
@@ -28,36 +27,48 @@ class App extends Component {
       <div>
         <Route exact path="/" component={Dashboard} />
         <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/campaigns" component = {Campaigns}/>
+        <Route exact path="/campaigns" component={Campaigns} />
+        <Route exact path="/campaigns/edit/:id" component={EditCampaign} />
       </div>
-    )
+    );
   }
 
   render() {
     let renderRoutes = null;
-    const {auth} = this.props;
+    const { auth } = this.props;
 
-    if(auth){
-      if(auth.token){
+    if (auth) {
+      if (auth.token) {
         renderRoutes = this.routeAuthenticated();
-      }else{
+      } else {
         renderRoutes = this.routeUnauthenticated();
       }
     }
 
-    return  renderRoutes;
+    return renderRoutes;
   }
 
-  componentDidMount() {
+  static getDerivedStateFromProps = nextProps => {
+    //If the token exist and then it immediately fetches the campaigns
+    if (nextProps.auth && nextProps.auth.token) {
+      nextProps.fetchCampaigns(nextProps.auth.token);
+    }
+  };
+  componentDidMount = () => {
     this.props.fetchToken();
-  }
+  };
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   auth: state.auth
 });
 
-const mapDispatchToProps = (dispatch)=>({
-  fetchToken:bindActionCreators(fetchToken,dispatch)
-})
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+const mapDispatchToProps = dispatch => ({
+  fetchToken: bindActionCreators(fetchToken, dispatch),
+  fetchCampaigns: bindActionCreators(fetchCampaigns, dispatch)
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
