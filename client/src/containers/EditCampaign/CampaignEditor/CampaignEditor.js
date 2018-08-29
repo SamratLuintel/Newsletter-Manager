@@ -6,6 +6,7 @@ import RecipientEditor from "./RecipientEditor/RecipientEditor";
 import SenderEditor from "./SenderEditor/SenderEditor";
 import update from "immutability-helper";
 import SubjectEditor from "./SubjectEditor/SubjectEditor";
+import TemplateEditor from "./TemplateEditor/TemplateEditor";
 
 class CampaignEditor extends Component {
   state = {
@@ -18,7 +19,9 @@ class CampaignEditor extends Component {
       senderName: "",
       email: "",
       recipients: "",
-      subject: ""
+      subject: "",
+      // It is the id of the selected template
+      template: ""
     }
   };
 
@@ -61,6 +64,16 @@ class CampaignEditor extends Component {
     });
     this.setState(newState);
   };
+
+  onTemplateSave = template => {
+    let newState = update(this.state, {
+      campaign: {
+        template: { $set: template }
+      }
+    });
+    this.setState(newState);
+  };
+
   render() {
     return (
       <div className="c-CampaignEditor">
@@ -82,6 +95,11 @@ class CampaignEditor extends Component {
           <SubjectEditor
             subject={this.state.campaign.subject}
             saveSubject={this.onSubjectChange}
+          />
+          <TemplateEditor
+            template={this.state.campaign.template}
+            saveTemplate={this.onTemplateSave}
+            templateLists={this.props.templateLists}
           />
         </div>
       </div>
@@ -106,7 +124,8 @@ class CampaignEditor extends Component {
               name: campaign.name,
               recipients: campaign.recipients,
               senderName: campaign.senderName,
-              email: campaign.email
+              email: campaign.email,
+              template: campaign.template || "default"
             }
           };
         } else {
@@ -122,7 +141,8 @@ class CampaignEditor extends Component {
 }
 
 const mapStateToProps = state => ({
-  campaignLists: state.campaigns.lists
+  campaignLists: state.campaigns.lists,
+  templateLists: state.templates.lists
 });
 
 export default connect(mapStateToProps)(CampaignEditor);
