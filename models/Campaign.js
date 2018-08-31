@@ -14,6 +14,11 @@ const campaignSchema = new Schema({
     type: String,
     default: ""
   },
+  // User can change the sender email to any name they want
+  email: {
+    type: String,
+    default: ""
+  },
   lastEdited: {
     type: Date,
     default: Date.now
@@ -21,6 +26,10 @@ const campaignSchema = new Schema({
   senderName: {
     type: String,
     default: ""
+  },
+  template: {
+    type: Schema.Types.ObjectId,
+    ref: "templates"
   }
 });
 

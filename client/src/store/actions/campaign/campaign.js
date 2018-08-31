@@ -48,6 +48,34 @@ export const createCampaign = (
   }
 };
 
+//Edits the campaign
+export const editCampaign = (campaign, token) => async dispatch => {
+  console.log("This is called from edit Campaign", campaign);
+  const { id } = campaign;
+
+  try {
+    await axios.post(
+      `/user/campaigns/edit/${id}`,
+      {
+        campaign
+      },
+      {
+        headers: {
+          authorization: token
+        }
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//Send the campaign
+export const sendCampaign = (campaign, token) => async dispatch => {
+  console.log("This is called from send campaign");
+  console.log(campaign, token);
+};
+
 export const campaignCreationError = message => ({
   type: CAMPAIGN_CREATION_ERROR,
   payload: message

@@ -11,6 +11,9 @@ module.exports = app => {
     res.send(campaigns);
   });
 
+  // @route POST /user/campaigns/create
+  // @desc Create Campaign
+  // @access Private
   app.post("/user/campaigns/create", requireToken, async (req, res) => {
     const { name } = req.body;
     //If the name is passed to the server
@@ -34,5 +37,43 @@ module.exports = app => {
     } else {
       res.status(400).send({ message: "Invalid data" });
     }
+  });
+
+  // @route POST /user/campaigns/edit/:id
+  // @desc EDIT Campaign
+  // @access Private
+  app.post("/user/campaigns/edit/:id", requireToken, async (req, res) => {
+    const { id } = req.params;
+    let { campaign } = req.body;
+    //In the create campaign page, there is a drop down for selection of template.
+    // By default the value of that dropdown is name "default"
+    // But the model of Campaign only stores the id of template
+    //So if the user has not provided any option, yet. it should be set to null
+    if (campaign.template === "default") campaign.template = null;
+    const { name, recipients, senderName, email, template } = campaign;
+    console.log("Recipient is ", recipients);
+
+    try {
+      const campaign = await Campaign.findOneAndUpdate(
+        { _id: id },
+        {
+          $set: { name, recipients, senderName, email, template }
+        },
+        {
+          new: true
+        }
+      );
+      console.log("Updated campaign is ", campaign);
+    } catch (err) {
+      console.log("Error occured on Edit Campaign route");
+      console.log(err);
+    }
+  });
+
+  // @route POST /user/campaigns/send/:id
+  // @desc Sends the Campaign
+  // @access Private
+  app.post("/user/campaigns/send/:id", requireToken, async (req, res) => {
+    console.log("Send Campaign route is caleld", req.body.campaign);
   });
 };

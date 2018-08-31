@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import NameEditor from "./NameEditor/NameEditor";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -7,6 +7,7 @@ import SenderEditor from "./SenderEditor/SenderEditor";
 import update from "immutability-helper";
 import SubjectEditor from "./SubjectEditor/SubjectEditor";
 import TemplateEditor from "./TemplateEditor/TemplateEditor";
+import StatusBar from "./StatusBar/StatusBar";
 
 class CampaignEditor extends Component {
   state = {
@@ -21,7 +22,9 @@ class CampaignEditor extends Component {
       recipients: "",
       subject: "",
       // It is the id of the selected template
-      template: ""
+      template: "",
+      // id of the selected campaign
+      id: ""
     }
   };
 
@@ -74,35 +77,39 @@ class CampaignEditor extends Component {
     this.setState(newState);
   };
 
+  //StatusBar contains the Save Edit and other functionalities
   render() {
     return (
-      <div className="c-CampaignEditor">
-        <NameEditor
-          campaignName={this.state.campaign.name}
-          saveName={this.onCampaignNameChange}
-        />
+      <Fragment>
+        <StatusBar campaign={this.state.campaign} />
+        <div className="c-CampaignEditor">
+          <NameEditor
+            campaignName={this.state.campaign.name}
+            saveName={this.onCampaignNameChange}
+          />
 
-        <div className="c-CampaignEditor--border">
-          <RecipientEditor
-            saveRecipients={this.onRecipientListChange}
-            recipients={this.state.campaign.recipients}
-          />
-          <SenderEditor
-            senderName={this.state.campaign.senderName}
-            email={this.state.campaign.email}
-            saveSenderAndEmail={this.onSenderEmailAndNameChange}
-          />
-          <SubjectEditor
-            subject={this.state.campaign.subject}
-            saveSubject={this.onSubjectChange}
-          />
-          <TemplateEditor
-            template={this.state.campaign.template}
-            saveTemplate={this.onTemplateSave}
-            templateLists={this.props.templateLists}
-          />
+          <div className="c-CampaignEditor--border">
+            <RecipientEditor
+              saveRecipients={this.onRecipientListChange}
+              recipients={this.state.campaign.recipients}
+            />
+            <SenderEditor
+              senderName={this.state.campaign.senderName}
+              email={this.state.campaign.email}
+              saveSenderAndEmail={this.onSenderEmailAndNameChange}
+            />
+            <SubjectEditor
+              subject={this.state.campaign.subject}
+              saveSubject={this.onSubjectChange}
+            />
+            <TemplateEditor
+              template={this.state.campaign.template}
+              saveTemplate={this.onTemplateSave}
+              templateLists={this.props.templateLists}
+            />
+          </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 
@@ -125,7 +132,8 @@ class CampaignEditor extends Component {
               recipients: campaign.recipients,
               senderName: campaign.senderName,
               email: campaign.email,
-              template: campaign.template || "default"
+              template: campaign.template || "default",
+              id: campaign._id
             }
           };
         } else {
