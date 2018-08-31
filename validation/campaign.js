@@ -1,6 +1,7 @@
-import isEmpty from "../../../../utils/is-empty";
+// Validates whether the campaign is properly filled before sending
+const isEmpty = require("../utils/is-empty");
 
-const statusValidation = campaign => {
+const validateCampaign = campaign => {
   const { name, recipients, senderName, email, template, subject } = campaign;
   let errors = {};
   let isValid = false;
@@ -20,4 +21,4 @@ const statusValidation = campaign => {
   };
 };
 
-export default statusValidation;
+module.exports = validateCampaign;

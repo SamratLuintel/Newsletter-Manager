@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
 const User = mongoose.model("users");
 const Campaign = mongoose.model("campaigns");
+const Template = mongoose.model("templates");
 const passport = require("passport");
-
+const validateCampaign = require("../validation/campaign");
 const requireToken = passport.authenticate("jwt", { session: false });
+const sendMail = require("../services/sendMail");
 
 module.exports = app => {
   app.get("/user/campaigns", requireToken, async (req, res) => {
@@ -50,14 +52,14 @@ module.exports = app => {
     // But the model of Campaign only stores the id of template
     //So if the user has not provided any option, yet. it should be set to null
     if (campaign.template === "default") campaign.template = null;
-    const { name, recipients, senderName, email, template } = campaign;
+    const { name, recipients, senderName, email, template, subject } = campaign;
     console.log("Recipient is ", recipients);
 
     try {
       const campaign = await Campaign.findOneAndUpdate(
         { _id: id },
         {
-          $set: { name, recipients, senderName, email, template }
+          $set: { name, recipients, senderName, email, template, subject }
         },
         {
           new: true
@@ -74,6 +76,26 @@ module.exports = app => {
   // @desc Sends the Campaign
   // @access Private
   app.post("/user/campaigns/send/:id", requireToken, async (req, res) => {
-    console.log("Send Campaign route is caleld", req.body.campaign);
+    console.log("Send Campaign route is caleld");
+    const { id } = req.params;
+    let { campaign } = req.body;
+
+    const { isValid, errors } = validateCampaign(campaign);
+    if (!isValid) {
+      res.status(400).send(errors);
+    }
+
+    const { recipients, senderName, subject, template } = campaign;
+    //Retrieves the template
+
+    try {
+      const templateRes = await Template.findById(template);
+      const templateHTML = JSON.parse(templateRes.html);
+
+      sendMail(recipients, subject, senderName, templateHTML);
+    } catch (err) {
+      console.log(err);
+    }
+    console.log(isValid, errors);
   });
 };

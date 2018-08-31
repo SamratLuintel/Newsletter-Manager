@@ -1,18 +1,22 @@
-const mongoose = require('mongoose');
-const {Schema} = mongoose;
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
 const templateSchema = new Schema({
-    json: {
-        type:String,
-        required:true
-    },
-    name:{
-        type:String,
-    },
-    _user:{
-        type: Schema.Types.ObjectId, 
-        ref: 'Story'
-    }
-})
+  json: {
+    type: String,
+    required: true
+  },
+  html: {
+    type: String,
+    required: true
+  },
+  name: {
+    type: String
+  },
+  _user: {
+    type: Schema.Types.ObjectId,
+    ref: "Story"
+  }
+});
 
-mongoose.model('templates',templateSchema);
+mongoose.model("templates", templateSchema);

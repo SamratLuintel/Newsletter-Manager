@@ -27,6 +27,10 @@ const campaignSchema = new Schema({
     type: String,
     default: ""
   },
+  subject: {
+    type: String,
+    default: ""
+  },
   template: {
     type: Schema.Types.ObjectId,
     ref: "templates"

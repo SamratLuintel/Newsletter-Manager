@@ -38,7 +38,6 @@ class EditTemplate extends Component {
   exportHtml = () => {
     this.editor.exportHtml(data => {
       const { html } = data;
-      console.log("exportHtml", html);
     });
   };
   saveDesign = () => {
@@ -46,17 +45,22 @@ class EditTemplate extends Component {
       return this.setState({ error: "You must provide a name before saving" });
     }
     const id = this.props.match.params.id;
-    this.editor.saveDesign(async design => {
-      console.log("This saveDesign is called");
-      try {
-        await axios.post(`/user/templates/${id}`, {
-          design,
-          name: this.state.name
-        });
-        console.log("Successfully saved the design");
-      } catch (err) {
-        console.log(err);
-      }
+
+    this.editor.exportHtml(data => {
+      const { html } = data;
+      this.editor.saveDesign(async design => {
+        console.log("This saveDesign is called");
+        try {
+          await axios.post(`/user/templates/${id}`, {
+            design,
+            name: this.state.name,
+            html
+          });
+          console.log("Successfully saved the design");
+        } catch (err) {
+          console.log(err);
+        }
+      });
     });
   };
   onLoad = async () => {

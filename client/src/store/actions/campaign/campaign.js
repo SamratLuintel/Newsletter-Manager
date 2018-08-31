@@ -74,6 +74,18 @@ export const editCampaign = (campaign, token) => async dispatch => {
 export const sendCampaign = (campaign, token) => async dispatch => {
   console.log("This is called from send campaign");
   console.log(campaign, token);
+  const { id } = campaign;
+  axios.post(
+    `/user/campaigns/send/${id}`,
+    {
+      campaign
+    },
+    {
+      headers: {
+        authorization: token
+      }
+    }
+  );
 };
 
 export const campaignCreationError = message => ({

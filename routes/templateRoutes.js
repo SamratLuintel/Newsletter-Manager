@@ -40,13 +40,20 @@ module.exports = app => {
   //@@desc Edits the templates
   //@@access private
   app.post("/user/templates/:id", async (req, res) => {
-    const { design, name } = req.body;
+    const { design, name, html } = req.body;
     const templateJSON = JSON.stringify(design);
+    const htmlJSON = JSON.stringify(html);
+
     try {
-      const template = await Template.findByIdAndUpdate(req.params.id, {
-        json: templateJSON,
-        name: name
-      });
+      const template = await Template.findByIdAndUpdate(
+        req.params.id,
+        {
+          json: templateJSON,
+          name: name,
+          html: htmlJSON
+        },
+        { new: true }
+      );
       console.log(template);
       res.status(200).send();
     } catch (error) {

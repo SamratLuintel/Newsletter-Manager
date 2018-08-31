@@ -133,6 +133,7 @@ class CampaignEditor extends Component {
               senderName: campaign.senderName,
               email: campaign.email,
               template: campaign.template || "default",
+              subject: campaign.subject,
               id: campaign._id
             }
           };
