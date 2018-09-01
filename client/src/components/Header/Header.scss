@@ -1,43 +1,58 @@
-$header-height:50px;
-$light-header-color:#FEFEFE;
-$dark-header-color:#F2F2F2;
-$navitem-paddingX:20px;
-$navitem-paddingY:15px;
+$header-height: 50px;
+$light-header-color: #ffffff;
+$dark-header-color: #f2f2f2;
+$navitem-paddingX: 20px;
+$navitem-paddingY: 15px;
 $navitem-color: #424242;
 
-.Header{
-    display:flex;
-    width:'100%';
-    box-sizing: content-box;
-    height:$header-height;
-    box-shadow:0 1px 3px rgba(0,0,0,0.1);
-    justify-content: space-between;
+//When the user is not logged in the navbar will be of white color
+// When the user is logged in the navbar will be of dark color
+// So I have make use of --loggedIn and --loggedOut for changing their behaviour.
+// The hover color will be different for two kind of navbar
+
+.Header {
+  display: flex;
+  width: "100%";
+  box-sizing: content-box;
+  height: $header-height;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
 }
 
-.Header--light{
-    background-color: $light-header-color;
+.Header--light {
+  background-color: $light-header-color;
 }
 
-.Header--dark{
-    background-color:$dark-header-color;
-}
-.navbar{
-    list-style: none;
-    display:flex;
+.Header--dark {
+  background-color: $dark-header-color;
 }
 
-.navbar__navitem{
-    padding: $navitem-paddingY $navitem-paddingX;
-    color: $navitem-color;
-    display: inline-block;
-    vertical-align: top;
+.navbar {
+  list-style: none;
+  display: flex;
 }
 
-.signin{
-    text-decoration: none;
-    border:1px solid rgba(66,66,66,0.2);
-    padding:8px 17px;
-    border-radius:18px;
-    white-space: nowrap;
-    vertical-align: top;
+.navbar__navitem {
+  padding: $navitem-paddingY $navitem-paddingX;
+  color: $navitem-color;
+  display: inline-block;
+  vertical-align: top;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.navbar__navitem--loggedIn:hover {
+  background-color: darken($dark-header-color, 5%);
+}
+
+.navbar__navitem--loggedOut:hover {
+  background-color: darken($light-header-color, 5%);
+}
+.signin {
+  text-decoration: none;
+  border: 1px solid rgba(66, 66, 66, 0.2);
+  padding: 8px 17px;
+  border-radius: 18px;
+  white-space: nowrap;
+  vertical-align: top;
 }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import SignUp from "./SignUp/SignUp";
 import Landing from "./Landing/Landing";
 import EditCampaign from "./EditCampaign/EditCampaign";
@@ -27,13 +27,15 @@ class App extends Component {
   routeAuthenticated() {
     return (
       <div>
-        <Route exact path="/" component={Dashboard} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/campaigns" component={Campaigns} />
-        <Route exact path="/campaigns/edit/:id" component={EditCampaign} />
-        <Route exact path="/templates" component={Templates} />
-        <Route exact path="/templates/create" component={CreateTemplate} />
-        <Route exact path="/templates/edit/:id" component={EditTemplate} />
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/campaigns" component={Campaigns} />
+          <Route exact path="/campaigns/edit/:id" component={EditCampaign} />
+          <Route exact path="/templates" component={Templates} />
+          <Route exact path="/templates/create" component={CreateTemplate} />
+          <Route exact path="/templates/edit/:id" component={EditTemplate} />
+        </Switch>
       </div>
     );
   }
@@ -49,7 +51,6 @@ class App extends Component {
         renderRoutes = this.routeUnauthenticated();
       }
     }
-
     return renderRoutes;
   }
 
@@ -75,7 +76,10 @@ const mapDispatchToProps = dispatch => ({
   fetchTemplates: bindActionCreators(fetchTemplates, dispatch)
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+//It is for solving the problem with react router v4 beta. It does not work correctly with connect
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);
