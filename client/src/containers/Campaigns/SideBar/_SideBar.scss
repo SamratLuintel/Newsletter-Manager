@@ -1,5 +1,4 @@
 $selected-color: #237a91;
-$text-color: #737373;
 
 .Sidebar {
   width: 180px;
@@ -9,11 +8,11 @@ $text-color: #737373;
 .Sidebar__listItem {
   padding: 0.5rem 0.5rem;
   cursor: pointer;
-  color: $text-color;
+  color: $primaryGrey;
 
   &:hover {
     background-color: darken(#ffffff, 5%);
-    color: darken($text-color, 30%);
+    color: darken($primaryGrey, 30%);
   }
 }
 
@@ -23,6 +22,6 @@ $text-color: #737373;
   font-size: 1.3rem;
 }
 .SideBar__listItem--selected {
-  color: $selected-color !important;
+  color: $primaryBlue !important;
   font-weight: 500;
 }

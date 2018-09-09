@@ -23,15 +23,5 @@ $searchColor: #d0d0d0;
 }
 
 .CampaignManager__sortDropdown__select {
-  padding: 0.4em 1.2em;
-  background-color: lighten($searchColor, 5%);
-  color: #484848;
-  font-weight: 500;
-  border-radius: 0.1em;
-  border: none;
-  cursor: pointer;
-}
-
-.CampaignManager__sortDropdown__option {
-  padding: 0.8em 1.9em;
+  @include select-action-btn;
 }

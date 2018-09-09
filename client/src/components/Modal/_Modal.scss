@@ -1,5 +1,3 @@
-$modalBtnColor: #737373;
-
 .c-modal-cover {
   position: fixed;
   top: 0;
@@ -71,22 +69,5 @@ $modalBtnColor: #737373;
 }
 
 .c-modalBtn {
-  padding: 0em 1em;
-  color: #ffffff;
-  background-color: $modalBtnColor;
-  border: 1px solid $modalBtnColor;
-  cursor: pointer;
-  transition: background 0.15s ease-out;
-  border-radius: 0.1em;
-  font-weight: 400;
-  display: inline-block;
-
-  &:hover {
-    background-color: darken($modalBtnColor, 10%);
-  }
-
-  &:focus {
-    outline: 0;
-    box-shadow: 0 0 4px currentColor;
-  }
+  @include main-action-btn;
 }

@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Header from "../../components/Header/Header";
 import CampaignEditor from "./CampaignEditor/CampaignEditor";
-import "./EditCampaign.scss";
 
 class EditCampaign extends Component {
   render() {

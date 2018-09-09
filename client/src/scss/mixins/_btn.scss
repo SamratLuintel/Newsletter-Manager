@@ -1,0 +1,39 @@
+@mixin main-action-btn {
+  padding: 0em 1em;
+  color: #ffffff;
+  background-color: $primaryGrey;
+  border: 1px solid $primaryGrey;
+  cursor: pointer;
+  transition: background 0.15s ease-out;
+  border-radius: 0.1em;
+  font-weight: 400;
+  display: inline-block;
+
+  &:hover {
+    background-color: darken($primaryGrey, 10%);
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 4px currentColor;
+  }
+}
+
+//Drop down
+@mixin select-action-btn {
+  padding: 0.4em 1.2em;
+  background-color: lighten($searchColor, 5%);
+  color: $secondaryGrey;
+  font-weight: 500;
+  border-radius: 0.1em;
+  border: none;
+  cursor: pointer;
+}
+
+//Good example is delete
+@mixin alternate-action-btn {
+  padding: 0.4em 0.9em;
+  font-size: 0.9rem;
+  background-color: #e0e0e0;
+  cursor: pointer;
+}

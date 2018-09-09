@@ -1,5 +1,3 @@
-$campaignTextColor: #237a91;
-
 .CampaignList {
   margin-bottom: 20px;
   position: relative;
@@ -19,7 +17,7 @@ $campaignTextColor: #237a91;
 }
 
 .CampaignList__name {
-  color: $campaignTextColor;
+  color: $primaryBlue;
   font-weight: 500;
 }
 
@@ -53,12 +51,9 @@ $campaignTextColor: #237a91;
 }
 
 .CampaignList__delete {
+  @include alternate-action-btn;
   position: absolute;
   right: 45px;
-  padding: 0.4em 0.9em;
-  font-size: 0.9rem;
-  background-color: #e0e0e0;
-  cursor: pointer;
   transition: opacity 0.2s ease-out;
   opacity: 0;
 

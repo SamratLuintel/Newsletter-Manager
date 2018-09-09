@@ -1,0 +1,11 @@
+$Template-width: 1300px;
+
+.Template {
+  max-width: $Template-width;
+  margin: 0 auto;
+}
+.Template__header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}

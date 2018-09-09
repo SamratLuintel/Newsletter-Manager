@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Header from "../../components/Header/Header";
-import "./Campaigns.scss";
 import SideBar from "./SideBar/SideBar";
 import Actionbar from "./ActionBar/ActionBar";
 import CampaignsLists from "./CampaignsLists/CampaignsLists";
