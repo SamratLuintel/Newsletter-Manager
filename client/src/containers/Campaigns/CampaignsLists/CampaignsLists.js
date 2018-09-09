@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import moment from "moment";
-import Slat from "./Slat/Slat";
+import CampaignList from "./CampaignList/CampaignList";
 
 class CampaignLists extends Component {
   renderCampaignList() {
@@ -17,7 +17,7 @@ class CampaignLists extends Component {
       });
       return visibleCampaigns.map(({ name, createdAt, lastEdited, _id }) => {
         return (
-          <Slat
+          <CampaignList
             name={name}
             createdAt={createdAt}
             lastEdited={lastEdited}
