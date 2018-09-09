@@ -1,0 +1,28 @@
+$selected-color: #237a91;
+$text-color: #737373;
+
+.Sidebar {
+  width: 180px;
+  float: left;
+}
+
+.Sidebar__listItem {
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
+  color: $text-color;
+
+  &:hover {
+    background-color: darken(#ffffff, 5%);
+    color: darken($text-color, 30%);
+  }
+}
+
+.Sidebar__listItem__icon {
+  color: #b7b7b7 !important;
+  padding-right: 12px;
+  font-size: 1.3rem;
+}
+.SideBar__listItem--selected {
+  color: $selected-color !important;
+  font-weight: 500;
+}

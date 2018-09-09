@@ -1,7 +1,7 @@
 import React from "react";
 
 // This is a individual campaign shown in the campaign list
-const Slat = props => {
+const CampaignList = props => {
   return (
     <div>
       {props.name}
@@ -13,4 +13,4 @@ const Slat = props => {
   );
 };
 
-export default Slat;
+export default CampaignList;

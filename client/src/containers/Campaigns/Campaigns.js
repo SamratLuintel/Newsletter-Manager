@@ -17,9 +17,7 @@ class Campaigns extends Component {
     );
   }
   renderListItemHeader() {
-    return (
-      <div className="CampaignManager__listItem__header">Past Month(1)</div>
-    );
+    return <div className="CampaignManager__category-date">Past Month(1)</div>;
   }
   render() {
     return (
