@@ -1,6 +1,6 @@
 @import "./SideBar/SideBar";
 @import "./ActionBar/ActionBar";
-
+@import "./CampaignsLists/CampaignsLists";
 $campaignManager-width: 1300px;
 
 .CampaignManager {
@@ -31,7 +31,7 @@ $campaignManager-width: 1300px;
 
 .CampaignManager__category-date {
   margin-top: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   color: #959595;
   font-size: 0.8125rem;
 }
