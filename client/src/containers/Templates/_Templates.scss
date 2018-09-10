@@ -11,3 +11,7 @@ $Template-width: 1300px;
   justify-content: space-between;
   margin-top: 40px;
 }
+
+.Template__header_create {
+  @include main-action-btn;
+}
