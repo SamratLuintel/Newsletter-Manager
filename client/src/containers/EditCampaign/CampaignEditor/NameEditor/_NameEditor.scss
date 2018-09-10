@@ -1,4 +1,14 @@
-.c-NameEditor__p{
-    cursor:pointer;
-    color:blue;
+.c-NameEditor {
+  margin-top: 30px;
+}
+.c-NameEditor__name {
+  color: $secondaryGrey;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 40px;
+}
+
+.c-NameEditor__edit-name {
+  cursor: pointer;
+  color: $primaryBlue;
 }

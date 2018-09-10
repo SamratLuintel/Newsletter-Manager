@@ -37,3 +37,17 @@
   background-color: #e0e0e0;
   cursor: pointer;
 }
+
+@mixin blue-btn {
+  background-color: $secondaryBlue;
+  color: #fff;
+  font-weight: 400;
+  border: 1px solid $secondaryBlue;
+  padding: 0em 1em;
+  border-radius: 0.1em;
+  cursor: pointer;
+  &:disabled {
+    cursor: context-menu;
+    opacity: 0.5;
+  }
+}

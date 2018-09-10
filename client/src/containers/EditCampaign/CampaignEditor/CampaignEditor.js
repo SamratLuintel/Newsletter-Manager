@@ -81,8 +81,8 @@ class CampaignEditor extends Component {
   render() {
     return (
       <Fragment>
-        <StatusBar campaign={this.state.campaign} />
         <div className="c-CampaignEditor">
+          <StatusBar campaign={this.state.campaign} />
           <NameEditor
             campaignName={this.state.campaign.name}
             saveName={this.onCampaignNameChange}

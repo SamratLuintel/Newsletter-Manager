@@ -1,8 +1,29 @@
-.c-slatMeta {
+.c-statusBar {
   display: flex;
   justify-content: space-between;
 }
 
-.c-slatMeta__action {
-  display: flex;
+.c-statusBar__body__info-status {
+  color: $secondaryGrey;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+  line-height: 32px;
+}
+
+.c-statusBar__body__info-title {
+  opacity: 0.8;
+  font-size: 14px;
+  line-height: inherit;
+}
+
+.c-statusBar__action__save-btn {
+  @include main-action-btn;
+  padding: 0.5em 2em;
+  margin-right: 10px;
+}
+
+.c-statusBar__action__send-btn {
+  @include blue-btn;
+  padding: 0.5em 1em;
 }

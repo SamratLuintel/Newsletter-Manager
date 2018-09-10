@@ -50,8 +50,8 @@ class NameEditor extends Component {
     if (!editMode) {
       renderData = (
         <div className="c-NameEditor">
-          <h1>{campaignName}</h1>
-          <p className="c-NameEditor__p" onClick={this.editModeTrue}>
+          <h1 className="c-NameEditor__name">{campaignName}</h1>
+          <p className="c-NameEditor__edit-name" onClick={this.editModeTrue}>
             Edit Name
           </p>
         </div>
@@ -60,13 +60,18 @@ class NameEditor extends Component {
       renderData = (
         <div className="c-NameEditor">
           <input
+            className="c-NameEditor__input"
             type="text"
             placeholder={campaignName}
             value={campaignName}
             onChange={this.onNameChange}
           />
-          <button onClick={this.onNameSave}>Save</button>
-          <p onClick={this.editModeFalse}>Cancel</p>
+          <button className="c-NameEditor__save" onClick={this.onNameSave}>
+            Save
+          </button>
+          <p className="c-NameEditor__cancel" onClick={this.editModeFalse}>
+            Cancel
+          </p>
         </div>
       );
     }

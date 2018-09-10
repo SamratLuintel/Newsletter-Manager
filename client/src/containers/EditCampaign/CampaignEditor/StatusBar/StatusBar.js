@@ -37,26 +37,26 @@ class StatusBar extends Component {
   render() {
     return (
       <div className="c-statusBar">
-        <div className="c-slatMeta">
-          <div className="c-slatMeta__info">
-            <div className="c-slatInfo">
-              <div className="c-slatInfoBody">
-                <div className="c-slatInfoStatus">
-                  Let's get started! <span className="badge">Draft</span>
-                </div>
-                <div className="c-slatInfoTitle">Draft Email</div>
-              </div>
-            </div>
+        <div className="c-statusBar__body">
+          <div className="c-statusBar__body__info-status">
+            Let's get started! <span className="badge">Draft</span>
           </div>
-          <div className="c-slatMeta__action">
-            <button onClick={this.saveCampaign}>Save</button>
-            <button
-              disabled={this.state.sendDisable}
-              onClick={this.sendCampaign}
-            >
-              Send
-            </button>
-          </div>
+          <div className="c-statusBar__body__info-title">Draft Email</div>
+        </div>
+        <div className="c-statusBar__action">
+          <button
+            className="c-statusBar__action__save-btn"
+            onClick={this.saveCampaign}
+          >
+            Save
+          </button>
+          <button
+            className="c-statusBar__action__send-btn"
+            disabled={this.state.sendDisable}
+            onClick={this.sendCampaign}
+          >
+            Send
+          </button>
         </div>
       </div>
     );
