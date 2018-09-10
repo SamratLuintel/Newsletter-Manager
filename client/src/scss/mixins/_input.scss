@@ -1,0 +1,10 @@
+@mixin search-input {
+  box-sizing: border-box;
+  width: 400px;
+  height: 35px;
+  padding-left: 0.4em;
+  font-size: 0.9rem;
+  border-radius: 0.1em;
+  border: 2px solid $searchColor;
+  color: $searchColor;
+}

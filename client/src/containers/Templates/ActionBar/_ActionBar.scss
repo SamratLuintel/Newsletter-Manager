@@ -1,0 +1,41 @@
+.Template__actionbar {
+  margin-top: 30px;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.Template__sortDropDown__select {
+  @include select-action-btn;
+  padding: 0.6em 1em;
+}
+
+.Template__sortDropDown__description {
+  padding-right: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.Template__search {
+  display: flex;
+  margin-left: 30px;
+  &__input {
+    @include search-input;
+    width: 350px;
+  }
+}
+
+.Template__search__search-button {
+  background-color: $searchColor;
+  color: $primaryGrey;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0.5em 0.7em;
+  cursor: pointer;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transition: 0.4s;
+
+  &:hover {
+    background-color: darken($searchColor, 10%);
+  }
+}

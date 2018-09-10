@@ -1,0 +1,63 @@
+.TemplateList {
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 44px;
+  display: flex;
+}
+.TemplateList__body {
+  width: 300px;
+}
+.TemplateList__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  color: #737373;
+  font-size: 1.5rem;
+}
+
+.TemplateList__name {
+  color: $primaryBlue;
+  font-weight: 500;
+}
+
+.TemplateList__alternate-text {
+  font-size: 0.9rem;
+}
+
+.TemplateList__edit-date {
+  margin-top: 6px;
+  color: #939393;
+  font-size: 0.9rem;
+
+  span {
+    font-weight: 500;
+    color: #8f8f8f;
+  }
+}
+
+.TemplateList__draft {
+  background-color: #e0e0e0;
+  font-size: 13px;
+  font-weight: 500;
+  font-style: normal;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 200px;
+  color: #484848;
+  padding: 3px 9px;
+  height: 18px;
+  margin: 0 6px;
+}
+
+.TemplateList__delete {
+  @include alternate-action-btn;
+  position: absolute;
+  right: 45px;
+  transition: opacity 0.2s ease-out;
+  opacity: 0;
+
+  &--is-visible {
+    opacity: 1;
+  }
+}

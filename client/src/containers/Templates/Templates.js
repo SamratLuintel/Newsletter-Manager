@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
-import TemplateLists from "./TemplatesLists/TemplateLists";
+import TemplateLists from "./TemplatesLists/TemplatesLists";
 import ActionBar from "./ActionBar/ActionBar";
 
 class Templates extends Component {
