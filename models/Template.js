@@ -7,8 +7,7 @@ const templateSchema = new Schema({
     required: true
   },
   html: {
-    type: String,
-    required: true
+    type: String
   },
   name: {
     type: String
@@ -16,6 +15,10 @@ const templateSchema = new Schema({
   _user: {
     type: Schema.Types.ObjectId,
     ref: "Story"
+  },
+  lastEdited: {
+    type: Date,
+    default: Date.now()
   }
 });
 

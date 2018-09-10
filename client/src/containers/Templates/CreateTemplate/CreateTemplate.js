@@ -43,6 +43,7 @@ class CreateTemplate extends Component {
     }
     this.editor.saveDesign(design => {
       console.log("This line is called");
+      console.log(design);
       axios.post("/user/templates/create", {
         design,
         name: this.state.name

@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import TemplateList from "./TemplateList/TemplateList";
 
 class TemplateLists extends Component {
   renderTemplateList = () => {
     const { lists: templateLists } = this.props.templates;
+    console.log(templateLists);
     if (templateLists) {
-      return templateLists.map(({ name }) => {
+      return templateLists.map(({ name, lastEdited }) => {
         //make the use of individual template
-        return <p>{name}</p>;
+        return <TemplateList name={name} lastEdited={lastEdited} />;
       });
     }
   };
