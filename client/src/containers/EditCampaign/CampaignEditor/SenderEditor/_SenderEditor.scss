@@ -1,4 +1,34 @@
 .SenderEditor {
   display: flex;
   justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-top: 1px dotted #e0e0e0;
+}
+
+.SenderEditor__action__button {
+  @include main-action-btn;
+  padding: 0.5em 1.2em;
+}
+
+.SenderEditor__name {
+  @include main-input;
+  height: 30px;
+  color: black;
+}
+
+.SenderEditor__email {
+  @include main-input;
+  height: 30px;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.SenderEditor__save-btn {
+  @include main-action-btn;
+  padding: 0.5em 2em;
+}
+
+.SenderEditor__cancel-btn {
+  margin-left: 15px;
 }

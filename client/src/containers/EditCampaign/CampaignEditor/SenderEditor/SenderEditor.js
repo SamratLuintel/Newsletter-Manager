@@ -64,36 +64,53 @@ class SenderEditor extends Component {
     return (
       <div className="SenderEditor">
         <div className="SenderEditor-brand">
-          <h1 className="SenderEditor__h1">From</h1>
-          <p className="SenderEditor__p">Who is sending this campaign</p>
+          <h1 className="SenderEditor__heading grey-header">From</h1>
+          <p className="SenderEditor__sub-text grey-italic-text">
+            Who is sending this campaign
+          </p>
 
           {this.state.edit && (
             <Fragment>
-              <p className="SenderEditor__namelabel">Name</p>
+              <p className="SenderEditor__namelabel grey-text">Name</p>
               <input
                 type="text"
-                className="SenderEditor__audience-list"
+                className="SenderEditor__name"
                 value={this.state.senderName}
                 onChange={this.onSenderNameChange}
+                placeholder="Use something subscriber will instantly recognize"
               />
-              <p>Use something subscriber will instantly recognize</p>
-              <p>{this.state.nameErrorMessage}</p>
-              <p className="SenderEditor__emaillabel">Email</p>
+              <p className="error-text">{this.state.nameErrorMessage}</p>
+              <p className="SenderEditor__emaillabel grey-text">Email</p>
               <input
                 type="email"
                 className="SenderEditor__email"
                 value={this.state.email}
                 onChange={this.onEmailChange}
               />
-              <p>{this.state.emailErrorMessage}</p>
-              <button onClick={this.onRecipientSave}>Save</button>
-              <button onClick={this.changeEditFalse}>Cancel</button>
+              <p className="error-text">{this.state.emailErrorMessage}</p>
+              <button
+                className="SenderEditor__save-btn"
+                onClick={this.onRecipientSave}
+              >
+                Save
+              </button>
+              <span
+                className="SenderEditor__cancel-btn underlined-blue-text"
+                onClick={this.changeEditFalse}
+              >
+                Cancel
+              </span>
             </Fragment>
           )}
         </div>
         {!this.state.edit && (
-          <div className="SenderEditor-action">
-            <button onClick={this.changeEditTrue}>Edit Recipients</button>
+          <div className="SenderEditor__action">
+            <button
+              className="SenderEditor__action__button"
+              onClick={this.changeEditTrue}
+            >
+              Edit Recipients
+            </button>
           </div>
         )}
       </div>

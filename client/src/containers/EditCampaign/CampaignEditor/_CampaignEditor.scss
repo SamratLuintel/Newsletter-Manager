@@ -10,6 +10,12 @@
   margin-top: 20px;
 }
 
-.c-CampaignEditor--border {
+.c-CampaignEditor__main-content {
   margin-top: 50px;
+  padding: 20px;
+}
+
+.c-CampaignEditor--border {
+  border: 1px solid #d0d0d0;
+  border-radius: 0.2em;
 }

@@ -43,29 +43,45 @@ class SubjectEditor extends Component {
     return (
       <div className="SubjectEditor">
         <div className="SubjectEditor-brand">
-          <h1 className="SubjectEditor__h1">Subject</h1>
-          <p className="SubjectEditor__p">
+          <h1 className="SubjectEditor__heading-text grey-header">Subject</h1>
+          <p className="SubjectEditor__sub-text grey-italic-text">
             What's the subject line for this campaign?
           </p>
 
           {this.state.edit && (
             <Fragment>
-              <p className="SubjectEditor__label">Subject</p>
+              <p className="SubjectEditor__label grey-text">Subject</p>
               <input
                 type="text"
-                className="SubjectEditor__audience-list"
+                className="SubjectEditor__subject-input"
                 value={this.state.subject}
                 onChange={this.onInputChange}
+                placeholder="Please provide the subject of your email"
               />
-              <p>{this.state.errorMessage}</p>
-              <button onClick={this.onSubjectSave}>Save</button>
-              <button onClick={this.changeEditFalse}>Cancel</button>
+              <p className="error-text">{this.state.errorMessage}</p>
+              <button
+                className="SubjectEditor__save"
+                onClick={this.onSubjectSave}
+              >
+                Save
+              </button>
+              <span
+                className="SubjectEditor__cancel underlined-blue-text"
+                onClick={this.changeEditFalse}
+              >
+                Cancel
+              </span>
             </Fragment>
           )}
         </div>
         {!this.state.edit && (
-          <div className="SubjectEditor-action">
-            <button onClick={this.changeEditTrue}>Edit Subject</button>
+          <div className="SubjectEditor__action">
+            <button
+              className="SubjectEditor__action__button"
+              onClick={this.changeEditTrue}
+            >
+              Edit Subject
+            </button>
           </div>
         )}
       </div>

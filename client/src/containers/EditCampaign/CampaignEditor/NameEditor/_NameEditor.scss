@@ -12,3 +12,21 @@
   cursor: pointer;
   color: $primaryBlue;
 }
+
+.c-NameEditor__input {
+  @include main-input;
+  color: black;
+  height: 30px;
+  width: 500px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.c-NameEditor__save {
+  @include main-action-btn;
+  padding: 0.5em 2em;
+}
+
+.c-NameEditor__cancel {
+  margin-left: 10px;
+}

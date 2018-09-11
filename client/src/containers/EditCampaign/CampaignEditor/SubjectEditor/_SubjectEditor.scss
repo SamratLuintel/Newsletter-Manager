@@ -1,4 +1,27 @@
 .SubjectEditor {
   display: flex;
   justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-top: 1px dotted #e0e0e0;
+}
+
+.SubjectEditor__action__button {
+  @include main-action-btn;
+  padding: 0.5em 1.2em;
+}
+
+.SubjectEditor__subject-input {
+  @include main-input;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.SubjectEditor__save {
+  @include main-action-btn;
+  padding: 0.5em 2em;
+}
+
+.SubjectEditor__cancel {
+  margin-left: 15px;
 }

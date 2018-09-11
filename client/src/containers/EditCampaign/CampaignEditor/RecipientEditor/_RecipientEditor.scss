@@ -1,4 +1,26 @@
 .RecipientEditor {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 15px;
+}
+
+.RecipientEditor__action__button {
+  @include main-action-btn;
+  padding: 0.5em 1.2em;
+}
+
+.RecipientEditor__recipients-list {
+  @include main-input;
+  height: 30px;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.RecipientEditor__save {
+  @include main-action-btn;
+  padding: 0.5em 2em;
+}
+
+.RecipientEditor__cancel {
+  margin-left: 15px;
 }

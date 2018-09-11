@@ -88,7 +88,7 @@ class CampaignEditor extends Component {
             saveName={this.onCampaignNameChange}
           />
 
-          <div className="c-CampaignEditor--border">
+          <div className="c-CampaignEditor__main-content c-CampaignEditor--border">
             <RecipientEditor
               saveRecipients={this.onRecipientListChange}
               recipients={this.state.campaign.recipients}

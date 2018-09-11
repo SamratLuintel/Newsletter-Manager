@@ -19,7 +19,7 @@
   display: flex;
   margin-left: 30px;
   &__input {
-    @include search-input;
+    @include main-input;
     width: 350px;
   }
 }

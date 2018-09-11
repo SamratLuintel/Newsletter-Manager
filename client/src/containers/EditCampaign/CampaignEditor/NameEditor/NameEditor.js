@@ -69,9 +69,12 @@ class NameEditor extends Component {
           <button className="c-NameEditor__save" onClick={this.onNameSave}>
             Save
           </button>
-          <p className="c-NameEditor__cancel" onClick={this.editModeFalse}>
+          <span
+            className="c-NameEditor__cancel underlined-blue-text"
+            onClick={this.editModeFalse}
+          >
             Cancel
-          </p>
+          </span>
         </div>
       );
     }

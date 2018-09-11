@@ -1,0 +1,31 @@
+.grey-italic-text {
+  font-style: italic;
+  color: $primaryGrey;
+}
+
+.grey-header {
+  color: $secondaryGrey;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 38px;
+}
+
+.grey-text {
+  color: $secondaryGrey;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 38px;
+}
+
+.underlined-blue-text {
+  text-decoration: underline;
+  color: $primaryBlue;
+  cursor: pointer;
+}
+
+.error-text {
+  color: #d8000c;
+  opacity: 0.8;
+  font-weight: 500;
+  line-height: 38px;
+}
