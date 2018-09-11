@@ -1,4 +1,32 @@
-.c-NameEditor__p{
-    cursor:pointer;
-    color:blue;
+.c-NameEditor {
+  margin-top: 30px;
+}
+.c-NameEditor__name {
+  color: $secondaryGrey;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 40px;
+}
+
+.c-NameEditor__edit-name {
+  cursor: pointer;
+  color: $primaryBlue;
+}
+
+.c-NameEditor__input {
+  @include main-input;
+  color: black;
+  height: 30px;
+  width: 500px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.c-NameEditor__save {
+  @include main-action-btn;
+  padding: 0.5em 2em;
+}
+
+.c-NameEditor__cancel {
+  margin-left: 10px;
 }

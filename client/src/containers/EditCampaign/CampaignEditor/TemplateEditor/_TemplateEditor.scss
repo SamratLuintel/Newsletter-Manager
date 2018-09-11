@@ -1,4 +1,27 @@
 .TemplateEditor {
   display: flex;
   justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-top: 1px dotted #e0e0e0;
+}
+
+.TemplateEditor__action__button {
+  @include main-action-btn;
+  padding: 0.5em 1.2em;
+}
+
+.TemplateEditor__select {
+  @include select-action-btn;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.TemplateEditor__save-btn {
+  @include main-action-btn;
+  padding: 0.5em 2em;
+}
+
+.TemplateEditor__cancel {
+  margin-left: 15px;
 }

@@ -49,30 +49,45 @@ class RecipientEditor extends Component {
     return (
       <div className="RecipientEditor">
         <div className="RecipientEditor-brand">
-          <h1 className="RecipientEditor__h1">To</h1>
-          <p className="RecipientEditor__p">
+          <h1 className="RecipientEditor__heading grey-header">To</h1>
+          <p className="RecipientEditor__sub-text grey-italic-text">
             Who are you sending this campaign to?
           </p>
 
           {this.state.edit && (
             <Fragment>
-              <p className="RecipientEditor__label">List</p>
+              <p className="RecipientEditor__label grey-text">List</p>
               <input
                 type="text"
-                className="RecipientEditor__audience-list"
+                className="RecipientEditor__recipients-list"
+                placeholder="Please provide the email separated by comma"
                 value={this.state.recipients}
                 onChange={this.onInputChange}
               />
-              <p>Please provide the email separated by comma</p>
-              <p>{this.state.errorMessage}</p>
-              <button onClick={this.onRecipientSave}>Save</button>
-              <button onClick={this.changeEditFalse}>Cancel</button>
+              <p className="error-text">{this.state.errorMessage}</p>
+              <button
+                className="RecipientEditor__save"
+                onClick={this.onRecipientSave}
+              >
+                Save
+              </button>
+              <span
+                className="underlined-blue-text RecipientEditor__cancel"
+                onClick={this.changeEditFalse}
+              >
+                Cancel
+              </span>
             </Fragment>
           )}
         </div>
         {!this.state.edit && (
-          <div className="RecipientEditor-action">
-            <button onClick={this.changeEditTrue}>Edit Recipients</button>
+          <div className="RecipientEditor__action">
+            <button
+              className="RecipientEditor__action__button"
+              onClick={this.changeEditTrue}
+            >
+              Edit Recipients
+            </button>
           </div>
         )}
       </div>
