@@ -3,7 +3,9 @@
 @import "./scss/mixins/mixins";
 @import "./scss/modules/modules";
 
+@import "./components/Header/Header";
 @import "./components/Modal/Modal";
+@import "./components/ErrorMessage/ErrorMessage";
 
 @import "./containers/Campaigns/Campaigns";
 @import "./containers/EditCampaign/EditCampaign";
