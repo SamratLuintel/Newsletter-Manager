@@ -1,0 +1,22 @@
+.ProgressMessage {
+  padding: 15px;
+  background-color: #47a8f5;
+  color: white;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+.ProgressMessage__cross {
+  margin-left: 18px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 15px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    color: black;
+  }
+}

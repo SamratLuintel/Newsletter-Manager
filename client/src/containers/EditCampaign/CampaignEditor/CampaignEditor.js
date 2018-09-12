@@ -8,6 +8,7 @@ import update from "immutability-helper";
 import SubjectEditor from "./SubjectEditor/SubjectEditor";
 import TemplateEditor from "./TemplateEditor/TemplateEditor";
 import StatusBar from "./StatusBar/StatusBar";
+import { ClipLoader } from "react-spinners";
 
 class CampaignEditor extends Component {
   state = {
@@ -79,6 +80,17 @@ class CampaignEditor extends Component {
 
   //StatusBar contains the Save Edit and other functionalities
   render() {
+    //If loading
+    if (!this.state.fetched) {
+      return (
+        <ClipLoader
+          sizeUnit={"px"}
+          size={35}
+          color={"#123abc"}
+          loading={true}
+        />
+      );
+    }
     return (
       <Fragment>
         <div className="c-CampaignEditor">

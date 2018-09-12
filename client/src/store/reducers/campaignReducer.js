@@ -3,7 +3,9 @@ import {
   CAMPAIGN_CREATION_ERROR,
   SET_CAMPAIGN_FILTER_TEXT,
   SET_CAMPAIGN_SORT_OPTION,
-  LOADING_CAMPAIGN
+  LOADING_CAMPAIGN,
+  CAMPAIGN_SENDING_IN_PROGRESS,
+  CAMPAIGN_SENT
 } from "../actions/types";
 
 //sortOption includes [latest,oldest,lastEdited]
@@ -19,6 +21,11 @@ const initialState = {
     //This errors occurs when something goes wrong while creating Campaign
     // Most common error is name already exist
     creationError: null
+  },
+  // Checks the status of new Campaign whether it is being sent or in process
+  campaignStatus: {
+    sending: false,
+    sent: false
   }
 };
 export default (state = initialState, action) => {
@@ -53,6 +60,23 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: action.payload
+      };
+    case CAMPAIGN_SENDING_IN_PROGRESS:
+      return {
+        ...state,
+        campaignStatus: {
+          ...state.campaignStatus,
+          sending: true
+        }
+      };
+    case CAMPAIGN_SENT:
+      return {
+        ...state,
+        campaignStatus: {
+          ...state.campaignStatus,
+          sending: false,
+          sent: true
+        }
       };
     default:
       return state;

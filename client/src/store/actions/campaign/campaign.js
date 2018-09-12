@@ -3,7 +3,9 @@ import {
   CAMPAIGN_CREATION_ERROR,
   SET_CAMPAIGN_FILTER_TEXT,
   SET_CAMPAIGN_SORT_OPTION,
-  LOADING_CAMPAIGN
+  LOADING_CAMPAIGN,
+  CAMPAIGN_SENDING_IN_PROGRESS,
+  CAMPAIGN_SENT
 } from "../types";
 
 import axios from "axios";
@@ -79,10 +81,9 @@ export const editCampaign = (campaign, token) => async dispatch => {
 
 //Send the campaign
 export const sendCampaign = (campaign, token) => async dispatch => {
-  console.log("This is called from send campaign");
-  console.log(campaign, token);
+  dispatch(sendingInProgress());
   const { id } = campaign;
-  axios.post(
+  const res = await axios.post(
     `/user/campaigns/send/${id}`,
     {
       campaign
@@ -93,7 +94,22 @@ export const sendCampaign = (campaign, token) => async dispatch => {
       }
     }
   );
+  console.log("This is being called from send Campaign");
+  console.log(res);
+  console.log(res.data);
+  console.log(res.status);
+  if (res.status == 200) {
+    dispatch(campaignSent());
+  }
 };
+
+const sendingInProgress = () => ({
+  type: CAMPAIGN_SENDING_IN_PROGRESS
+});
+
+const campaignSent = () => ({
+  type: CAMPAIGN_SENT
+});
 
 export const campaignCreationError = message => ({
   type: CAMPAIGN_CREATION_ERROR,

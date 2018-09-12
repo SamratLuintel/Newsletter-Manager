@@ -6,6 +6,8 @@ export const UPDATE_TOKEN = "update_token";
 export const UPDATE_CAMPAIGN = "update_campaign";
 export const CREATE_CAMPAIGN = "create_campaign";
 export const LOADING_CAMPAIGN = "loading_campaign";
+export const CAMPAIGN_SENDING_IN_PROGRESS = "campaign_sending_in_progress";
+export const CAMPAIGN_SENT = "campaign_sent";
 
 export const SET_CAMPAIGN_FILTER_TEXT = "set_campaign_filter_text";
 export const SET_CAMPAIGN_SORT_OPTION = "set_campaign_sort_option";
