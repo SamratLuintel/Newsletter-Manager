@@ -2,13 +2,27 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import moment from "moment";
 import CampaignList from "./CampaignList/CampaignList";
+import { ClipLoader } from "react-spinners";
 
 class CampaignLists extends Component {
   renderCampaignList() {
     const {
       lists,
-      filter: { text, sortBy }
+      filter: { text, sortBy },
+      loading
     } = this.props.campaigns;
+
+    //If loading
+    if (loading) {
+      return (
+        <ClipLoader
+          sizeUnit={"px"}
+          size={35}
+          color={"#123abc"}
+          loading={true}
+        />
+      );
+    }
     const campaignsList = lists;
     if (campaignsList) {
       const visibleCampaigns = this.getVisibleCampaigns(campaignsList, {

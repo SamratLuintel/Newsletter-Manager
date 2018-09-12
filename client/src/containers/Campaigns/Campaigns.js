@@ -21,7 +21,7 @@ class Campaigns extends Component {
   render() {
     return (
       <div>
-        <Header loggedIn={true} />
+        <Header />
         <div className="CampaignManager">
           {this.renderCampaignManagerHeader()}
           <div className="CampaignManager__body">

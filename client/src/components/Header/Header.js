@@ -7,7 +7,7 @@ import LoggedInHeader from "./LoggedInHeader/LoggedInHeader";
 class Header extends Component {
   render() {
     let header;
-    const { loggedIn } = this.props;
+    const loggedIn = this.props.auth.token ? true : false;
     if (loggedIn) {
       header = <LoggedInHeader />;
     } else {
@@ -18,6 +18,6 @@ class Header extends Component {
 }
 
 const mapStateToProps = state => ({
-  token: state.auth.token
+  auth: state.auth
 });
-export default Header;
+export default connect(mapStateToProps)(Header);

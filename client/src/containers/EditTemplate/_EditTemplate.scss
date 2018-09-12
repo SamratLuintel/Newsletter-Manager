@@ -1,0 +1,43 @@
+.EditTemplate__header__nav {
+  color: #b7b7b7;
+  display: inline-block;
+  vertical-align: top;
+  text-decoration: none;
+  transition: 0.5s;
+  height: 100%;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten($primaryDark, 10%);
+  }
+}
+
+.EditTemplate__header {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  height: 50px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: $primaryDark;
+}
+
+.EditTemplate__name-input {
+  @include main-input;
+  background-color: lighten($primaryDark, 5%);
+  color: #b7b7b7;
+  border: none;
+  height: 30px;
+  width: 200px;
+  margin-top: 10px;
+}
+
+.EditTemplate__button-container {
+  display: flex;
+}

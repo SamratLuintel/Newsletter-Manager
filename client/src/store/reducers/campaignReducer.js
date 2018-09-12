@@ -2,7 +2,8 @@ import {
   UPDATE_CAMPAIGN,
   CAMPAIGN_CREATION_ERROR,
   SET_CAMPAIGN_FILTER_TEXT,
-  SET_CAMPAIGN_SORT_OPTION
+  SET_CAMPAIGN_SORT_OPTION,
+  LOADING_CAMPAIGN
 } from "../actions/types";
 
 //sortOption includes [latest,oldest,lastEdited]
@@ -13,6 +14,7 @@ const initialState = {
     text: "",
     sortBy: "latest"
   },
+  loading: false,
   errors: {
     //This errors occurs when something goes wrong while creating Campaign
     // Most common error is name already exist
@@ -22,7 +24,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_CAMPAIGN:
-      return { ...state, lists: action.payload };
+      return { ...state, lists: action.payload, loading: false };
       break;
     case SET_CAMPAIGN_FILTER_TEXT:
       return {
@@ -46,6 +48,11 @@ export default (state = initialState, action) => {
         errors: {
           creationError: action.payload
         }
+      };
+    case LOADING_CAMPAIGN:
+      return {
+        ...state,
+        loading: action.payload
       };
     default:
       return state;

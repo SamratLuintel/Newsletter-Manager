@@ -1,0 +1,14 @@
+.WelcomeMessage {
+  margin-top: 30px;
+}
+
+.WelcomeMessage__heading-text {
+  color: $secondaryGrey;
+  font-weight: 500;
+  line-height: 38px;
+}
+
+.WelcomeMessage__sub-text {
+  color: $primaryGrey;
+  font-size: 1.2rem;
+}

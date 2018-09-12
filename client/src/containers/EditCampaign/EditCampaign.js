@@ -6,7 +6,7 @@ class EditCampaign extends Component {
   render() {
     return (
       <Fragment>
-        <Header loggedIn={true} />
+        <Header />
         <CampaignEditor id={this.props.match.params.id} />
       </Fragment>
     );

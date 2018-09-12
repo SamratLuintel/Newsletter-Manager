@@ -1,11 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import TemplateList from "./TemplateList/TemplateList";
+import { ClipLoader } from "react-spinners";
 
 class TemplateLists extends Component {
   renderTemplateList = () => {
-    const { lists: templateLists } = this.props.templates;
-    console.log(templateLists);
+    const { lists: templateLists, loading } = this.props.templates;
+
+    //If loading
+    if (loading) {
+      return (
+        <ClipLoader
+          sizeUnit={"px"}
+          size={35}
+          color={"#123abc"}
+          loading={true}
+        />
+      );
+    }
     if (templateLists) {
       return templateLists.map(({ name, lastEdited }) => {
         //make the use of individual template

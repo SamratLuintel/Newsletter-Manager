@@ -8,7 +8,7 @@ class Templates extends Component {
   render() {
     return (
       <div>
-        <Header loggedIn={true} />
+        <Header />
         <div className="Template">
           <div className="Template__header">
             <h1 className="Template__header_h1">Templates</h1>

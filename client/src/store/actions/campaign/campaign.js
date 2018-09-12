@@ -2,13 +2,15 @@ import {
   UPDATE_CAMPAIGN,
   CAMPAIGN_CREATION_ERROR,
   SET_CAMPAIGN_FILTER_TEXT,
-  SET_CAMPAIGN_SORT_OPTION
+  SET_CAMPAIGN_SORT_OPTION,
+  LOADING_CAMPAIGN
 } from "../types";
 
 import axios from "axios";
 
 //Fetches all the Campaigns and return an array of list
 export const fetchCampaigns = token => async dispatch => {
+  dispatch(loadingCampaigns(true));
   const res = await axios.get("/user/campaigns", {
     headers: {
       authorization: token
@@ -17,6 +19,11 @@ export const fetchCampaigns = token => async dispatch => {
   const campaigns = res.data;
   dispatch(updateCampaign(campaigns));
 };
+
+export const loadingCampaigns = value => ({
+  type: LOADING_CAMPAIGN,
+  payload: value
+});
 
 //Update the Campaign
 export const updateCampaign = campaigns => ({

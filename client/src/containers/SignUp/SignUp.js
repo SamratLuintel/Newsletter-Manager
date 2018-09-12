@@ -6,7 +6,7 @@ class SignUp extends Component {
   render() {
     return (
       <div>
-        <Header loggedIn={false} />
+        <Header />
         <div className="signup">
           <p className="signup__head">Please fill the below form</p>
           <div className="signup__body">
