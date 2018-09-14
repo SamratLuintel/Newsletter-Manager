@@ -5,7 +5,9 @@ import {
   SET_CAMPAIGN_SORT_OPTION,
   LOADING_CAMPAIGN,
   CAMPAIGN_SENDING_IN_PROGRESS,
-  CAMPAIGN_SENT
+  CAMPAIGN_SENT,
+  SET_DRAFT_ONLY_TRUE,
+  SET_COMPLETED_ONLY_TRUE
 } from "../actions/types";
 
 //sortOption includes [latest,oldest,lastEdited]
@@ -14,7 +16,9 @@ const initialState = {
   lists: null,
   filter: {
     text: "",
-    sortBy: "latest"
+    sortBy: "latest",
+    draftOnly: false,
+    completedOnly: false
   },
   loading: false,
   errors: {
@@ -76,6 +80,24 @@ export default (state = initialState, action) => {
           ...state.campaignStatus,
           sending: false,
           sent: true
+        }
+      };
+    case SET_DRAFT_ONLY_TRUE:
+      return {
+        ...state,
+        filter: {
+          ...state.filter,
+          draftOnly: true,
+          completedOnly: false
+        }
+      };
+    case SET_COMPLETED_ONLY_TRUE:
+      return {
+        ...state,
+        filter: {
+          ...state.filter,
+          draftOnly: false,
+          completedOnly: true
         }
       };
     default:

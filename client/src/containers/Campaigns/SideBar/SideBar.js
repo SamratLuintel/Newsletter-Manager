@@ -1,4 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
+import {
+  setDraftOnlyTrue,
+  setCompletedOnlyTrue
+} from "../../../store/actions/campaign/campaign";
+import { bindActionCreators } from "redux";
 
 const SideBar = props => {
   return (
@@ -15,13 +21,13 @@ const SideBar = props => {
         </span>
         Ongoing
       </div>
-      <div className="Sidebar__listItem">
+      <div className="Sidebar__listItem" onClick={props.setDraftOnlyTrue}>
         <span class="Sidebar__listItem__icon">
           <i class="fas fa-pencil-alt " />
         </span>
         Draft
       </div>
-      <div className="Sidebar__listItem">
+      <div className="Sidebar__listItem" onClick={props.setCompletedOnlyTrue}>
         <span class="Sidebar__listItem__icon">
           <i class="fas fa-check" />
         </span>
@@ -31,4 +37,11 @@ const SideBar = props => {
   );
 };
 
-export default SideBar;
+const mapDispatchToProps = dispatch => ({
+  setDraftOnlyTrue: bindActionCreators(setDraftOnlyTrue, dispatch),
+  setCompletedOnlyTrue: bindActionCreators(setCompletedOnlyTrue, dispatch)
+});
+export default connect(
+  null,
+  mapDispatchToProps
+)(SideBar);

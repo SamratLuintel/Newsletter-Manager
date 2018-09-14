@@ -16,7 +16,7 @@ class CampaignList extends Component {
   };
   render() {
     //I am not making any use of createdAt you can
-    const { name, createdAt, lastEdited } = this.props;
+    const { name, createdAt, lastEdited, draft } = this.props;
     const lastEditedDate = moment(lastEdited).format("ddd, MMMM Do h:mm a");
     let deleteClasses;
     if (this.state.hovering) {
@@ -40,7 +40,8 @@ class CampaignList extends Component {
             Edited <span>{lastEditedDate}</span>
           </p>
         </div>
-        <div className="CampaignList__draft">Draft</div>
+        {draft && <div className="CampaignList__draft">Draft</div>}
+
         <div className={deleteClasses}>Delete</div>
       </div>
     );

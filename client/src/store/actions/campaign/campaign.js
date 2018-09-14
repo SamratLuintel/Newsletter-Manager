@@ -5,7 +5,9 @@ import {
   SET_CAMPAIGN_SORT_OPTION,
   LOADING_CAMPAIGN,
   CAMPAIGN_SENDING_IN_PROGRESS,
-  CAMPAIGN_SENT
+  CAMPAIGN_SENT,
+  SET_DRAFT_ONLY_TRUE,
+  SET_COMPLETED_ONLY_TRUE
 } from "../types";
 
 import axios from "axios";
@@ -94,10 +96,6 @@ export const sendCampaign = (campaign, token) => async dispatch => {
       }
     }
   );
-  console.log("This is being called from send Campaign");
-  console.log(res);
-  console.log(res.data);
-  console.log(res.status);
   if (res.status == 200) {
     dispatch(campaignSent());
   }
@@ -126,4 +124,13 @@ export const setCampaignFilterText = text => ({
 export const setCampaignSortOption = text => ({
   type: SET_CAMPAIGN_SORT_OPTION,
   payload: text
+});
+
+//Sets the draft only option to true. So only draft campaigns are shown
+export const setDraftOnlyTrue = () => ({
+  type: SET_DRAFT_ONLY_TRUE
+});
+
+export const setCompletedOnlyTrue = () => ({
+  type: SET_COMPLETED_ONLY_TRUE
 });
