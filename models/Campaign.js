@@ -31,6 +31,10 @@ const campaignSchema = new Schema({
     type: String,
     default: ""
   },
+  draft: {
+    type: Boolean,
+    default: true
+  },
   template: {
     type: Schema.Types.ObjectId,
     ref: "templates"

@@ -19,6 +19,8 @@
 .CampaignList__name {
   color: $primaryBlue;
   font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .CampaignList__alternate-text {

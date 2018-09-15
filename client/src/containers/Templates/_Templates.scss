@@ -14,6 +14,11 @@ $Template-width: 1300px;
   margin-top: 40px;
 }
 
-.Template__header_create {
+.Template__header__create {
   @include main-action-btn;
+}
+
+.Template__header__create__text {
+  color: white;
+  text-decoration: none;
 }

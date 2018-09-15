@@ -18,8 +18,10 @@ module.exports = (recipients, subject, name, template) => {
     html: template // plain text body
   };
 
-  transporter.sendMail(mailOptions, function(err, info) {
-    if (err) console.log(err);
-    else console.log(info);
+  return new Promise((resolve, reject) => {
+    transporter.sendMail(mailOptions, function(err, info) {
+      if (err) reject(err);
+      else resolve(info);
+    });
   });
 };

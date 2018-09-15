@@ -1,14 +1,15 @@
 import {
   UPDATE_CAMPAIGN,
   CAMPAIGN_CREATION_ERROR,
-  SET_CAMPAIGN_FILTER_TEXT,
-  SET_CAMPAIGN_SORT_OPTION,
   LOADING_CAMPAIGN,
   CAMPAIGN_SENDING_IN_PROGRESS,
-  CAMPAIGN_SENT,
-  SET_DRAFT_ONLY_TRUE,
-  SET_COMPLETED_ONLY_TRUE
+  CAMPAIGN_SENT
 } from "../types";
+import {
+  sendingInProgress,
+  campaignCreationError,
+  campaignSent
+} from "./message";
 
 import axios from "axios";
 
@@ -61,9 +62,7 @@ export const createCampaign = (
 
 //Edits the campaign
 export const editCampaign = (campaign, token) => async dispatch => {
-  console.log("This is called from edit Campaign", campaign);
   const { id } = campaign;
-
   try {
     await axios.post(
       `/user/campaigns/edit/${id}`,
@@ -101,36 +100,16 @@ export const sendCampaign = (campaign, token) => async dispatch => {
   }
 };
 
-const sendingInProgress = () => ({
-  type: CAMPAIGN_SENDING_IN_PROGRESS
-});
-
-const campaignSent = () => ({
-  type: CAMPAIGN_SENT
-});
-
-export const campaignCreationError = message => ({
-  type: CAMPAIGN_CREATION_ERROR,
-  payload: message
-});
-
-//Set the Campaign Filter Text
-export const setCampaignFilterText = text => ({
-  type: SET_CAMPAIGN_FILTER_TEXT,
-  payload: text
-});
-
-//Set the Campaign Sort Option
-export const setCampaignSortOption = text => ({
-  type: SET_CAMPAIGN_SORT_OPTION,
-  payload: text
-});
-
-//Sets the draft only option to true. So only draft campaigns are shown
-export const setDraftOnlyTrue = () => ({
-  type: SET_DRAFT_ONLY_TRUE
-});
-
-export const setCompletedOnlyTrue = () => ({
-  type: SET_COMPLETED_ONLY_TRUE
-});
+//Delete the Campaign
+export const deleteCampaign = (id, token) => async dispatch => {
+  try {
+    await axios.delete(`/user/campaigns/${id}`, {
+      headers: {
+        authorization: token
+      }
+    });
+    dispatch(fetchCampaigns(token));
+  } catch (error) {
+    console.log(error);
+  }
+};

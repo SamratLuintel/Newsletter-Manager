@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class TemplateList extends Component {
   state = {
@@ -14,7 +15,7 @@ class TemplateList extends Component {
   };
 
   render() {
-    const { name, lastEdited } = this.props;
+    const { name, lastEdited, id } = this.props;
     let deleteClasses;
     if (this.state.hovering) {
       deleteClasses = "TemplateList__delete TemplateList__delete--is-visible";
@@ -31,7 +32,12 @@ class TemplateList extends Component {
           <i class="far fa-envelope" />
         </div>
         <div className="TemplateList__body">
-          <h3 className="TemplateList__name">{name}</h3>
+          <h3 className="TemplateList__name">
+            {" "}
+            <Link className="TemplateList__name" to={`templates/edit/${id}`}>
+              {name}
+            </Link>
+          </h3>
           <p className="TemplateList__alternate-text">Drag And Drop</p>
           <p className="TemplateList__edit-date">
             Edited <span>{lastEdited}</span>

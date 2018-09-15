@@ -1,6 +1,9 @@
 // This is a individual campaign shown in the campaign list
 import React, { Component } from "react";
 import moment from "moment";
+import { Link } from "react-router-dom";
+import { deleteCampaign } from "../../../../store/actions/campaign/campaign";
+import { connect } from "react-redux";
 
 class CampaignList extends Component {
   state = {
@@ -16,7 +19,15 @@ class CampaignList extends Component {
   };
   render() {
     //I am not making any use of createdAt you can
-    const { name, createdAt, lastEdited, draft } = this.props;
+    const {
+      name,
+      createdAt,
+      lastEdited,
+      draft,
+      id,
+      token,
+      deleteCampaign
+    } = this.props;
     const lastEditedDate = moment(lastEdited).format("ddd, MMMM Do h:mm a");
     let deleteClasses;
     if (this.state.hovering) {
@@ -34,7 +45,11 @@ class CampaignList extends Component {
           <i class="far fa-envelope" />
         </div>
         <div className="CampaignList__body">
-          <h3 className="CampaignList__name">{name}</h3>
+          <h3>
+            <Link className="CampaignList__name" to={`campaigns/edit/${id}`}>
+              {name}
+            </Link>
+          </h3>
           <p className="CampaignList__alternate-text">Regular</p>
           <p className="CampaignList__edit-date">
             Edited <span>{lastEditedDate}</span>
@@ -42,10 +57,18 @@ class CampaignList extends Component {
         </div>
         {draft && <div className="CampaignList__draft">Draft</div>}
 
-        <div className={deleteClasses}>Delete</div>
+        <div
+          onClick={() => deleteCampaign(id, token)}
+          className={deleteClasses}
+        >
+          Delete
+        </div>
       </div>
     );
   }
 }
 
-export default CampaignList;
+export default connect(
+  null,
+  { deleteCampaign }
+)(CampaignList);

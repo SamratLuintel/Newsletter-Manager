@@ -1,6 +1,5 @@
-import { UPDATE_TEMPLATE, LOADING_TEMPLATE } from "../types";
-
 import axios from "axios";
+import { loadingTemplate, updateTemplate } from "./message";
 
 //Fetches all the Templates and return an array of list
 export const fetchTemplates = token => async dispatch => {
@@ -13,38 +12,3 @@ export const fetchTemplates = token => async dispatch => {
   const templates = res.data;
   dispatch(updateTemplate(templates));
 };
-
-//Update the Campaign
-export const updateTemplate = templates => ({
-  type: UPDATE_TEMPLATE,
-  payload: templates
-});
-
-export const loadingTemplate = value => ({
-  type: LOADING_TEMPLATE,
-  payload: value
-});
-
-// //Create the template
-// export const createCampaign = (
-//   campaignName,
-//   token,
-//   closeModal
-// ) => async dispatch => {
-//   //error handling left to be done
-//   try {
-//     await axios.post(
-//       "/user/campaigns/create",
-//       { name: campaignName },
-//       {
-//         headers: {
-//           authorization: token
-//         }
-//       }
-//     );
-//     closeModal();
-//     dispatch(fetchTemplates(token));
-//   } catch (error) {
-//     dispatch(fetchTemplates(error.response.data.message));
-//   }
-// };

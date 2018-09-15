@@ -54,7 +54,6 @@ module.exports = app => {
         },
         { new: true }
       );
-      console.log(template);
       res.status(200).send();
     } catch (error) {
       res.status(400).send({

@@ -2,7 +2,7 @@ import React from "react";
 import {
   setCampaignFilterText,
   setCampaignSortOption
-} from "../../../store/actions/actionsIndex";
+} from "../../../store/actions/campaign";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 

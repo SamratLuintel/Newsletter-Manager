@@ -12,6 +12,10 @@ class CampaignLists extends Component {
       loading
     } = this.props.campaigns;
 
+    const {
+      auth: { token }
+    } = this.props;
+
     //If loading
     if (loading) {
       return (
@@ -31,6 +35,9 @@ class CampaignLists extends Component {
         draftOnly,
         completedOnly
       });
+      if (visibleCampaigns.length === 0) {
+        return <p>No Campaign found</p>;
+      }
       return visibleCampaigns.map(
         ({ name, createdAt, lastEdited, _id, draft }) => {
           return (
@@ -40,6 +47,8 @@ class CampaignLists extends Component {
               lastEdited={lastEdited}
               key={_id}
               draft={draft}
+              id={_id}
+              token={token}
             />
           );
         }
@@ -72,6 +81,7 @@ class CampaignLists extends Component {
         return campaign.draft === false;
       });
     }
+
     //sorts the campaign
     if (sortBy === "latest") {
       return filteredCampaigns.sort((a, b) =>

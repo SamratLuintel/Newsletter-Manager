@@ -6,7 +6,7 @@ import EditCampaign from "./EditCampaign/EditCampaign";
 import Dashboard from "./Dashboard/Dashboard";
 import Campaigns from "./Campaigns/Campaigns";
 import { fetchCampaigns, fetchTemplates } from "../store/actions/actionsIndex";
-import { fetchToken } from "../store/actions/actionsIndex";
+import { fetchToken } from "../store/actions/token";
 import { bindActionCreators } from "redux";
 import Templates from "./Templates/Templates";
 import { connect } from "react-redux";

@@ -11,8 +11,16 @@ class Templates extends Component {
         <Header />
         <div className="Template">
           <div className="Template__header">
-            <h1 className="Template__header_h1">Templates</h1>
-            <button className="Template__header_create">Create Template</button>
+            <h1 className="Template__header__h1">Templates</h1>
+            <button className="Template__header__create">
+              <Link
+                to="/templates/create"
+                className="Template__header__create__text"
+              >
+                {" "}
+                Create Template
+              </Link>
+            </button>
           </div>
           <ActionBar />
           <TemplateLists />

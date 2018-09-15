@@ -7,7 +7,8 @@ import {
   CAMPAIGN_SENDING_IN_PROGRESS,
   CAMPAIGN_SENT,
   SET_DRAFT_ONLY_TRUE,
-  SET_COMPLETED_ONLY_TRUE
+  SET_COMPLETED_ONLY_TRUE,
+  SHOW_ALL_CAMPAIGN
 } from "../actions/types";
 
 //sortOption includes [latest,oldest,lastEdited]
@@ -36,15 +37,14 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_CAMPAIGN:
       return { ...state, lists: action.payload, loading: false };
-      break;
     case SET_CAMPAIGN_FILTER_TEXT:
       return {
         ...state,
         filter: {
+          ...state.filter,
           text: action.payload
         }
       };
-      break;
     case SET_CAMPAIGN_SORT_OPTION:
       return {
         ...state,
@@ -98,6 +98,15 @@ export default (state = initialState, action) => {
           ...state.filter,
           draftOnly: false,
           completedOnly: true
+        }
+      };
+    case SHOW_ALL_CAMPAIGN:
+      return {
+        ...state,
+        filter: {
+          ...state.filter,
+          draftOnly: false,
+          completedOnly: false
         }
       };
     default:

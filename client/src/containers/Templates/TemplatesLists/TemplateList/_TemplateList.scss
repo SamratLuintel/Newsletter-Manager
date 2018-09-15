@@ -19,6 +19,8 @@
 .TemplateList__name {
   color: $primaryBlue;
   font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .TemplateList__alternate-text {

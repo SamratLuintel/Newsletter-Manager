@@ -61,7 +61,6 @@ class CreateTemplate extends Component {
   exportHtml = () => {
     this.editor.exportHtml(data => {
       const { html } = data;
-      console.log("exportHtml", html);
     });
   };
   saveDesign = () => {
@@ -81,9 +80,14 @@ class CreateTemplate extends Component {
     });
   };
   onLoad = async () => {
-    const template = await axios.get("user/templates/5b6eed0bab7ae61258e2ddac");
-    this.editor.loadDesign(template.data);
-    // const json = JSON.parse(localStorage.getItem('template'));
+    try {
+      const template = await axios.get(
+        "user/templates/5b6eed0bab7ae61258e2ddac"
+      );
+      this.editor.loadDesign(template.data);
+    } catch (err) {
+      console.log("From Create Template", err);
+    }
   };
 }
 

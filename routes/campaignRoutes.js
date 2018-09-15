@@ -47,27 +47,35 @@ module.exports = app => {
   app.post("/user/campaigns/edit/:id", requireToken, async (req, res) => {
     const { id } = req.params;
     let { campaign } = req.body;
+    let draft = true;
     //In the create campaign page, there is a drop down for selection of template.
     // By default the value of that dropdown is name "default"
     // But the model of Campaign only stores the id of template
     //So if the user has not provided any option, yet. it should be set to null
     if (campaign.template === "default") campaign.template = null;
     const { name, recipients, senderName, email, template, subject } = campaign;
-    console.log("Recipient is ", recipients);
-
+    const { isValid } = validateCampaign(campaign);
+    //If all the value of campaign is provided set the draft to false
+    if (isValid) draft = false;
     try {
       const campaign = await Campaign.findOneAndUpdate(
         { _id: id },
         {
-          $set: { name, recipients, senderName, email, template, subject }
+          $set: {
+            name,
+            recipients,
+            senderName,
+            email,
+            template,
+            subject,
+            draft
+          }
         },
         {
           new: true
         }
       );
-      console.log("Updated campaign is ", campaign);
     } catch (err) {
-      console.log("Error occured on Edit Campaign route");
       console.log(err);
     }
   });
@@ -92,10 +100,30 @@ module.exports = app => {
       const templateRes = await Template.findById(template);
       const templateHTML = JSON.parse(templateRes.html);
 
-      sendMail(recipients, subject, senderName, templateHTML);
+      const mailPromise = sendMail(
+        recipients,
+        subject,
+        senderName,
+        templateHTML
+      );
+      const info = await mailPromise;
+      res.status(200).send({ message: "Email sent successful" });
     } catch (err) {
       console.log(err);
     }
     console.log(isValid, errors);
+  });
+  // @route DELETE /user/campaigns/:id
+  // @desc Deletes the Campaign
+  // @access Private
+  app.delete("/user/campaigns/:id", requireToken, async (req, res) => {
+    const { id } = req.params;
+
+    try {
+      await Campaign.deleteOne({ _id: id });
+      res.status(200).send("Successfully deleted the campaign");
+    } catch (err) {
+      res.status(400).send(err);
+    }
   });
 };
