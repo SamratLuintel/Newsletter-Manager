@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { deleteTemplate } from "../../../../store/actions/template/template";
+import { connect } from "react-redux";
 
 class TemplateList extends Component {
   state = {
@@ -15,7 +17,7 @@ class TemplateList extends Component {
   };
 
   render() {
-    const { name, lastEdited, id } = this.props;
+    const { name, lastEdited, id, token, deleteTemplate } = this.props;
     let deleteClasses;
     if (this.state.hovering) {
       deleteClasses = "TemplateList__delete TemplateList__delete--is-visible";
@@ -43,10 +45,18 @@ class TemplateList extends Component {
             Edited <span>{lastEdited}</span>
           </p>
         </div>
-        <div className={deleteClasses}>Delete</div>
+        <div
+          onClick={() => deleteTemplate(id, token)}
+          className={deleteClasses}
+        >
+          Delete
+        </div>
       </div>
     );
   }
 }
 
-export default TemplateList;
+export default connect(
+  null,
+  { deleteTemplate }
+)(TemplateList);

@@ -1,10 +1,4 @@
-import {
-  UPDATE_CAMPAIGN,
-  CAMPAIGN_CREATION_ERROR,
-  LOADING_CAMPAIGN,
-  CAMPAIGN_SENDING_IN_PROGRESS,
-  CAMPAIGN_SENT
-} from "../types";
+import { UPDATE_CAMPAIGN, LOADING_CAMPAIGN } from "../types";
 import {
   sendingInProgress,
   campaignCreationError,

@@ -3,18 +3,52 @@ import EmailEditor from "react-email-editor";
 import axios from "axios";
 import isEmpty from "../../utils/is-empty";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import ProgressMessage from "../../components/ProgressMessage/ProgressMessage";
+import { saveTemplate } from "../../store/actions/template/template";
+import { resetSavingMessage } from "../../store/actions/template/message";
+import { connect } from "react-redux";
 
 class EditTemplate extends Component {
   state = {
     name: "",
     error: "",
     // This error is shown when something goes wrong while fetching data from server
-    fetchingError: ""
+    fetchingError: "",
+    //Status message like "template is being saved"
+    sending: false,
+    sent: false
   };
 
   onInputChange = e => {
     this.setState({ name: e.target.value });
   };
+
+  onMessageClosed = () => {
+    this.props.resetSavingMessage();
+  };
+
+  templateProgressMessage = () => {
+    let progress;
+    if (
+      (this.props.templateStatus.saving && !this.state.messageClosed) ||
+      (this.props.templateStatus.saved && !this.state.messageClosed)
+    ) {
+      progress = (
+        <ProgressMessage
+          message="Your template is being saved"
+          finishedMessage="Your template is saved successfully"
+          finished={this.props.templateStatus.saved}
+          onCrossed={this.onMessageClosed}
+        />
+      );
+    }
+    return progress;
+  };
+
+  componentDidMount = () => {
+    this.props.resetSavingMessage();
+  };
+
   //this.props.match.params.id
   render() {
     return (
@@ -47,6 +81,7 @@ class EditTemplate extends Component {
                 message={this.state.error}
               />
             )}
+          {this.templateProgressMessage()}
           <EmailEditor
             minHeight="100vh"
             ref={editor => (this.editor = editor)}
@@ -57,34 +92,21 @@ class EditTemplate extends Component {
     );
   }
 
-  exportHtml = () => {
-    this.editor.exportHtml(data => {
-      const { html } = data;
-    });
-  };
   saveDesign = () => {
     if (isEmpty(this.state.name)) {
       return this.setState({ error: "You must provide a name before saving" });
     }
+    const { auth } = this.props;
     const id = this.props.match.params.id;
-
     this.editor.exportHtml(data => {
       const { html } = data;
       this.editor.saveDesign(async design => {
-        console.log("This saveDesign is called");
-        try {
-          await axios.post(`/user/templates/${id}`, {
-            design,
-            name: this.state.name,
-            html
-          });
-          console.log("Successfully saved the design");
-        } catch (err) {
-          console.log(err);
-        }
+        console.log("This saveTemplate is called");
+        this.props.saveTemplate(design, this.state.name, html, id, auth.token);
       });
     });
   };
+
   onLoad = async () => {
     const id = this.props.match.params.id;
     try {
@@ -94,8 +116,13 @@ class EditTemplate extends Component {
     } catch (err) {
       console.log(err);
     }
-    // const json = JSON.parse(localStorage.getItem('template'));
   };
 }
-
-export default EditTemplate;
+const mapStateToProps = state => ({
+  auth: state.auth,
+  templateStatus: state.templates.templateStatus
+});
+export default connect(
+  mapStateToProps,
+  { saveTemplate, resetSavingMessage }
+)(EditTemplate);

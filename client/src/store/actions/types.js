@@ -22,3 +22,8 @@ export const CAMPAIGN_CREATION_ERROR = "campaign_creation_error";
 
 export const UPDATE_TEMPLATE = "update_template";
 export const LOADING_TEMPLATE = "loading_template";
+
+export const TEMPLATE_SAVING_IN_PROGRESS = "template_saving_in_progress";
+export const TEMPLATE_SAVED = "template_saved";
+
+export const RESET_TEMPLATE_SAVING_MESSAGE = "reset_template_saving_message";

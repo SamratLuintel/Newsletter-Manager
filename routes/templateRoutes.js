@@ -39,7 +39,7 @@ module.exports = app => {
 
   //@@desc Edits the templates
   //@@access private
-  app.post("/user/templates/:id", async (req, res) => {
+  app.post("/user/templates/:id", requireToken, async (req, res) => {
     const { design, name, html } = req.body;
     const templateJSON = JSON.stringify(design);
     const htmlJSON = JSON.stringify(html);
@@ -54,11 +54,26 @@ module.exports = app => {
         },
         { new: true }
       );
+      console.log("Tempalte is successfully updated");
       res.status(200).send();
     } catch (error) {
       res.status(400).send({
         message: "Some error occured while saving. Please try again later"
       });
+    }
+  });
+
+  // @route DELETE /user/templates/:id
+  // @desc Deletes the Campaign
+  // @access Private
+  app.delete("/user/templates/:id", requireToken, async (req, res) => {
+    const { id } = req.params;
+
+    try {
+      await Template.deleteOne({ _id: id });
+      res.status(200).send("Successfully deleted the template");
+    } catch (err) {
+      res.status(400).send(err);
     }
   });
 };
