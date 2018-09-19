@@ -29,10 +29,7 @@ class EditTemplate extends Component {
 
   templateProgressMessage = () => {
     let progress;
-    if (
-      (this.props.templateStatus.saving && !this.state.messageClosed) ||
-      (this.props.templateStatus.saved && !this.state.messageClosed)
-    ) {
+    if (this.props.templateStatus.saving || this.props.templateStatus.saved) {
       progress = (
         <ProgressMessage
           message="Your template is being saved"

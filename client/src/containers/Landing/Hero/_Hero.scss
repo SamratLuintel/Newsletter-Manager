@@ -1,0 +1,49 @@
+.Hero {
+  background: url("assets/hero-bg.jpg");
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#784386),
+    color-stop(25%, #6271bc),
+    color-stop(75%, #00bcd2),
+    to(#19c2b4)
+  );
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.Hero__diagonal {
+  position: absolute;
+  width: 2000px;
+  height: 350px;
+  bottom: -175px;
+  left: 0;
+  background-color: #fff;
+  z-index: 1;
+  transform: rotate(-10deg);
+}
+
+.Hero__parallax {
+  position: absolute;
+  left: -200px;
+  top: -100px;
+  width: 100%;
+}
+
+.Hero__parallax {
+  div {
+    width: 2200px;
+    height: 950px;
+  }
+  &__layer-1 {
+    background: url("assets/parallax1.png");
+  }
+  &__layer-2 {
+    background: url("assets/parallax2.png");
+  }
+  &__layer-3 {
+    background: url("assets/parallax3.png");
+  }
+}

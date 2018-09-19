@@ -2,7 +2,9 @@ import { UPDATE_CAMPAIGN, LOADING_CAMPAIGN } from "../types";
 import {
   sendingInProgress,
   campaignCreationError,
-  campaignSent
+  campaignSent,
+  savingInProgress,
+  campaignSaved
 } from "./message";
 
 import axios from "axios";
@@ -57,6 +59,7 @@ export const createCampaign = (
 //Edits the campaign
 export const editCampaign = (campaign, token) => async dispatch => {
   const { id } = campaign;
+  dispatch(savingInProgress());
   try {
     await axios.post(
       `/user/campaigns/edit/${id}`,
@@ -69,6 +72,7 @@ export const editCampaign = (campaign, token) => async dispatch => {
         }
       }
     );
+    dispatch(campaignSaved());
   } catch (error) {
     console.log(error);
   }

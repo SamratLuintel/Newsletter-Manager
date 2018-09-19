@@ -8,7 +8,11 @@ import {
   CAMPAIGN_SENT,
   SET_DRAFT_ONLY_TRUE,
   SET_COMPLETED_ONLY_TRUE,
-  SHOW_ALL_CAMPAIGN
+  SHOW_ALL_CAMPAIGN,
+  RESET_CAMPAIGN_SENDING_MESSAGE,
+  CAMPAIGN_SAVING_IN_PROGRESS,
+  CAMPAIGN_SAVED,
+  RESET_CAMPAIGN_SAVING_MESSAGE
 } from "../actions/types";
 
 //sortOption includes [latest,oldest,lastEdited]
@@ -30,7 +34,9 @@ const initialState = {
   // Checks the status of new Campaign whether it is being sent or in process
   campaignStatus: {
     sending: false,
-    sent: false
+    sent: false,
+    saving: false,
+    saved: false
   }
 };
 export default (state = initialState, action) => {
@@ -82,6 +88,41 @@ export default (state = initialState, action) => {
           sent: true
         }
       };
+    case RESET_CAMPAIGN_SENDING_MESSAGE:
+      return {
+        ...state,
+        campaignStatus: {
+          ...state.campaignStatus,
+          sending: false,
+          sent: false
+        }
+      };
+    case CAMPAIGN_SAVING_IN_PROGRESS:
+      return {
+        ...state,
+        campaignStatus: {
+          ...state.campaignStatus,
+          saving: true
+        }
+      };
+    case CAMPAIGN_SAVED:
+      return {
+        ...state,
+        campaignStatus: {
+          ...state.campaignStatus,
+          saving: false,
+          saved: true
+        }
+      };
+    case RESET_CAMPAIGN_SAVING_MESSAGE:
+      return {
+        ...state,
+        campaignStatus: {
+          ...state.campaignStatus,
+          saving: false,
+          saved: false
+        }
+      };
     case SET_DRAFT_ONLY_TRUE:
       return {
         ...state,
@@ -109,6 +150,7 @@ export default (state = initialState, action) => {
           completedOnly: false
         }
       };
+
     default:
       return state;
   }

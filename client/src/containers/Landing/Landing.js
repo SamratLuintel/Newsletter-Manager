@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Header from "../../components/Header/Header";
+import Hero from "./Hero/Hero";
 
 class Landing extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Hero />
       </div>
     );
   }

@@ -3,7 +3,8 @@ import {
   loadingTemplate,
   updateTemplate,
   savingInProgress,
-  templateSaved
+  templateSaved,
+  resetSavingMessage
 } from "./message";
 
 //Fetches all the Templates and return an array of list
@@ -56,6 +57,33 @@ export const saveTemplate = (
     );
     dispatch(templateSaved());
     console.log("Successfully saved the design");
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const createTemplate = (
+  design,
+  name,
+  token,
+  history
+) => async dispatch => {
+  try {
+    dispatch(savingInProgress());
+    await axios.post(
+      "/user/templates/create",
+      {
+        design,
+        name
+      },
+      {
+        headers: {
+          authorization: token
+        }
+      }
+    );
+    dispatch(resetSavingMessage());
+    history.push("/templates");
   } catch (err) {
     console.log(err);
   }

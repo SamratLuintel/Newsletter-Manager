@@ -3,6 +3,14 @@ import EmailEditor from "react-email-editor";
 import axios from "axios";
 import isEmpty from "../../../utils/is-empty";
 import ErrorMessage from "../../../components/ErrorMessage/ErrorMessage";
+import ProgressMessage from "../../../components/ProgressMessage/ProgressMessage";
+import {
+  saveTemplate,
+  createTemplate
+} from "../../../store/actions/template/template";
+import { withRouter } from "react-router-dom";
+import { resetSavingMessage } from "../../../store/actions/template/message";
+import { connect } from "react-redux";
 
 class CreateTemplate extends Component {
   state = {
@@ -18,6 +26,19 @@ class CreateTemplate extends Component {
   onErrorClosed = e => {
     this.setState({ errorClosed: true });
   };
+
+  templateProgressMessage = () => {
+    let progress;
+    if (this.props.templateStatus.saving || this.props.templateStatus.saved) {
+      progress = <ProgressMessage message="Your template is being saved" />;
+    }
+    return progress;
+  };
+
+  cancelButton = () => {
+    this.props.history.push("/templates");
+  };
+
   render() {
     return (
       <Fragment>
@@ -31,7 +52,10 @@ class CreateTemplate extends Component {
               className="CreateTemplate__name-input"
             />
             <div className="CreateTemplate__button-container">
-              <div className="CreateTemplate__cancel-btn CreateTemplate__header__nav">
+              <div
+                onClick={this.cancelButton}
+                className="CreateTemplate__cancel-btn CreateTemplate__header__nav"
+              >
                 Cancel
               </div>
               <div
@@ -49,6 +73,7 @@ class CreateTemplate extends Component {
                 message={this.state.error}
               />
             )}
+          {this.templateProgressMessage()}
           <EmailEditor
             minHeight="100vh"
             ref={editor => (this.editor = editor)}
@@ -58,11 +83,6 @@ class CreateTemplate extends Component {
       </Fragment>
     );
   }
-  exportHtml = () => {
-    this.editor.exportHtml(data => {
-      const { html } = data;
-    });
-  };
   saveDesign = () => {
     if (isEmpty(this.state.name)) {
       return this.setState({
@@ -71,12 +91,8 @@ class CreateTemplate extends Component {
       });
     }
     this.editor.saveDesign(design => {
-      console.log("This line is called");
-      console.log(design);
-      axios.post("/user/templates/create", {
-        design,
-        name: this.state.name
-      });
+      const { auth, history } = this.props;
+      this.props.createTemplate(design, this.state.name, auth.token, history);
     });
   };
   onLoad = async () => {
@@ -91,4 +107,11 @@ class CreateTemplate extends Component {
   };
 }
 
-export default CreateTemplate;
+const mapStateToProps = state => ({
+  auth: state.auth,
+  templateStatus: state.templates.templateStatus
+});
+export default connect(
+  mapStateToProps,
+  { createTemplate, saveTemplate, resetSavingMessage }
+)(withRouter(CreateTemplate));

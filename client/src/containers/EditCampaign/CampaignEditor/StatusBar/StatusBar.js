@@ -6,13 +6,16 @@ import {
   sendCampaign
 } from "../../../../store/actions/campaign/campaign";
 import ProgressMessage from "../../../../components/ProgressMessage/ProgressMessage";
+import {
+  resetSendingMesssage,
+  resestSavingMessage
+} from "../../../../store/actions/campaign/message";
 
 class StatusBar extends Component {
   state = {
     sendDisable: true,
     campaign: null,
-    sendingError: "",
-    messageClosed: false
+    sendingError: ""
   };
 
   static getDerivedStateFromProps = (nextProps, nextState) => {
@@ -39,22 +42,38 @@ class StatusBar extends Component {
     editCampaign(campaign, auth.token);
   };
 
-  onMessageClosed = () => {
-    this.setState({ messageClosed: true });
+  onSendingMessageClosed = () => {
+    this.props.resetSendingMesssage();
+  };
+
+  onSavingMessageClosed = () => {
+    this.props.resestSavingMessage();
   };
 
   emailProgressMessage = () => {
     let progress;
-    if (
-      (this.props.campaignStatus.sending && !this.state.messageClosed) ||
-      (this.props.campaignStatus.sent && !this.state.messageClosed)
-    ) {
+    if (this.props.campaignStatus.sending || this.props.campaignStatus.sent) {
       progress = (
         <ProgressMessage
           message="Your email is being sent"
           finishedMessage="Your email is successfully sent"
           finished={this.props.campaignStatus.sent}
-          onCrossed={this.onMessageClosed}
+          onCrossed={this.onSendingMessageClosed}
+        />
+      );
+    }
+    return progress;
+  };
+
+  savingProgressMessage = () => {
+    let progress;
+    if (this.props.campaignStatus.saving || this.props.campaignStatus.saved) {
+      progress = (
+        <ProgressMessage
+          message="Your campaign is being saved"
+          finishedMessage="Your campaign is saved successfully"
+          finished={this.props.campaignStatus.saved}
+          onCrossed={this.onSavingMessageClosed}
         />
       );
     }
@@ -64,6 +83,7 @@ class StatusBar extends Component {
     return (
       <Fragment>
         {this.emailProgressMessage()}
+        {this.savingProgressMessage()}
         <div className="c-statusBar">
           <div className="c-statusBar__body">
             <div className="c-statusBar__body__info-status">
@@ -99,5 +119,10 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { editCampaign, sendCampaign }
+  {
+    editCampaign,
+    sendCampaign,
+    resetSendingMesssage,
+    resestSavingMessage
+  }
 )(StatusBar);
