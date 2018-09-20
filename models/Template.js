@@ -19,6 +19,9 @@ const templateSchema = new Schema({
   lastEdited: {
     type: Date,
     default: Date.now()
+  },
+  _user: {
+    type: Schema.Types.ObjectId
   }
 });
 

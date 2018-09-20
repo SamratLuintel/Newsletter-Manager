@@ -4,22 +4,30 @@ const passport = require("passport");
 const requireToken = passport.authenticate("jwt", { session: false });
 
 module.exports = app => {
-  app.post("/user/templates/create", (req, res) => {
+  app.post("/user/templates/create", requireToken, async (req, res) => {
     const { design, name } = req.body;
     const templateJSON = JSON.stringify(design);
-    new Template({ json: templateJSON, name })
-      .save()
-      .then(() => console.log("template is saved"));
+    try {
+      const template = await new Template({
+        json: templateJSON,
+        name,
+        _user: req.user._id
+      }).save();
+
+      res.status(200).send();
+    } catch (err) {
+      console.log(err);
+    }
   });
 
   app.get("/user/templates", async (req, res) => {
+    console.log("GET ALL TEMPLATE IS CALLED");
     //Todo load the campaign of specific user
     const templates = await Template.find();
     res.send(templates);
   });
 
   app.get("/user/templates/:id", async (req, res) => {
-    console.log("This template route is called");
     try {
       const template = await Template.findOne({ _id: req.params.id });
       if (template) {
@@ -37,7 +45,7 @@ module.exports = app => {
     }
   });
 
-  //@@desc Edits the templates
+  //@@desc Create and Edits the templates
   //@@access private
   app.post("/user/templates/:id", requireToken, async (req, res) => {
     const { design, name, html } = req.body;
@@ -50,7 +58,8 @@ module.exports = app => {
         {
           json: templateJSON,
           name: name,
-          html: htmlJSON
+          html: htmlJSON,
+          _user: req.user
         },
         { new: true }
       );

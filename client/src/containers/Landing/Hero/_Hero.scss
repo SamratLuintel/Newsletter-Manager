@@ -65,26 +65,7 @@
 }
 
 .Hero__design-button {
-  background-color: $darkSkyBlue;
-  display: inline-block;
-  padding: 0.8em 2em;
-  letter-spacing: 1px;
-  font-size: 1.1rem;
-  border-radius: 9999px;
-  background-clip: padding-box;
-  color: #fff;
-  text-decoration: none;
-  transition: background-color 0.2s linear;
-  border: none;
-  cursor: pointer;
-  margin-top: 1rem;
-  &:focus {
-    outline: 0;
-  }
-
-  &:hover {
-    background-color: lighten($darkSkyBlue, 10%);
-  }
+  @include main-rounded-btn($darkSkyBlue);
 }
 
 .Hero__image {

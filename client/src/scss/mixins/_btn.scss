@@ -1,3 +1,4 @@
+// Following buttons mixins mainly use in the main application
 @mixin main-action-btn {
   padding: 0em 1em;
   color: #ffffff;
@@ -49,5 +50,31 @@
   &:disabled {
     cursor: context-menu;
     opacity: 0.5;
+  }
+}
+
+//Following buttons mixins mainly used in the landing pages
+@mixin main-rounded-btn($brandColor) {
+  //It needs a background color to be set
+  background-color: $brandColor;
+  display: inline-block;
+  padding: 0.8em 2em;
+  letter-spacing: 1px;
+  font-size: 1.1em;
+  border-radius: 9999px;
+  background-clip: padding-box;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.2s;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+  &:focus {
+    outline: 0;
+  }
+
+  &:hover {
+    background-color: lighten($brandColor, 10%);
   }
 }

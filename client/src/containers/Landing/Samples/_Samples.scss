@@ -1,0 +1,34 @@
+.Samples {
+  background: url("assets/images/pattern-bg.png") no-repeat top;
+  color: #333;
+  padding-top: 150px;
+}
+
+.Samples__header {
+  text-align: center;
+  font-weight: 600;
+  font-size: 2em;
+  font-family: lato;
+  color: #333;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+}
+
+.Samples__description {
+  text-align: center;
+  line-height: 1.4em;
+  color: #5c6a72;
+  font-family: lato;
+}
+
+.Samples__button {
+  @include main-rounded-btn($darkSkyBlue);
+  display: table;
+  margin: 0 auto;
+  margin-top: 1em;
+}
+
+.Samples__image {
+  max-width: 100%;
+  margin-top: 5em;
+}

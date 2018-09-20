@@ -75,6 +75,7 @@ module.exports = app => {
           new: true
         }
       );
+      res.status(200).send();
     } catch (err) {
       console.log(err);
     }
