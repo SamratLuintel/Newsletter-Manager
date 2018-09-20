@@ -1,0 +1,64 @@
+.Package-card {
+  box-shadow: 0 0 20px -1px #e1e3e4;
+  border-radius: 10px;
+  background-clip: padding-box;
+  width: 80%;
+  overflow: hidden;
+  text-align: center;
+  color: #333;
+  font-size: 100%;
+  padding: 2rem;
+  position: relative;
+}
+
+.Package-card__banner {
+  border-top: 1px solid #e1e3e4;
+  border-bottom: 1px solid #e1e3e4;
+  text-align: center;
+  position: absolute;
+  font-weight: 900;
+  font-size: 0.8em;
+  width: 150px;
+  top: 15px;
+  right: -47px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  transform: rotate(45deg);
+}
+
+.Package-card__title {
+  font-size: 2.1em;
+}
+
+.Package-card__subtitle {
+  font-size: 0.7em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-top: 0.5em;
+  margin-bottom: 2rem;
+}
+.Package-card__image {
+  max-height: 150px;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.Package-card__description {
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+.Package-card__button {
+  // background color is set inline
+  display: inline-block;
+  padding: 0.8em 2em;
+  letter-spacing: 1px;
+  font-size: 1.1em;
+  border-radius: 9999px;
+  background-clip: padding-box;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.2s;
+  margin-top: 30px;
+}

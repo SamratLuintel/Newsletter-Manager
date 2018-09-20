@@ -1,5 +1,5 @@
 .Hero {
-  background: url("assets/hero-bg.jpg");
+  background: url("assets/images/hero-bg.jpg");
   background-image: -webkit-gradient(
     linear,
     left top,
@@ -9,7 +9,7 @@
     color-stop(75%, #00bcd2),
     to(#19c2b4)
   );
-  height: 500px;
+  min-height: 650px;
   position: relative;
   overflow: hidden;
 }
@@ -38,12 +38,57 @@
     height: 950px;
   }
   &__layer-1 {
-    background: url("assets/parallax1.png");
+    background: url("assets/images/parallax1.png");
   }
   &__layer-2 {
-    background: url("assets/parallax2.png");
+    background: url("assets/images/parallax2.png");
   }
   &__layer-3 {
-    background: url("assets/parallax3.png");
+    background: url("assets/images/parallax3.png");
   }
+}
+
+.Hero__content {
+  color: #fff;
+}
+
+.Hero__title {
+  font-weight: 400;
+  font-size: 2.4em;
+}
+
+.Hero__subtitle {
+  font-family: Lato;
+  font-weight: 400;
+  font-size: 1.2em;
+  line-height: 1.8em;
+}
+
+.Hero__design-button {
+  background-color: $darkSkyBlue;
+  display: inline-block;
+  padding: 0.8em 2em;
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+  border-radius: 9999px;
+  background-clip: padding-box;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.2s linear;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  &:focus {
+    outline: 0;
+  }
+
+  &:hover {
+    background-color: lighten($darkSkyBlue, 10%);
+  }
+}
+
+.Hero__image {
+  position: relative;
+  max-width: 100%;
+  z-index: 100;
 }
