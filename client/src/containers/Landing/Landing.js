@@ -3,6 +3,7 @@ import Hero from "./Hero/Hero";
 import Packages from "./Packages/Packages";
 import Samples from "./Samples/Samples";
 import Personas from "./Personas/Personas";
+import DesignBlog from "./DesignBlog/DesignBlog";
 
 class Landing extends Component {
   render() {
@@ -12,6 +13,7 @@ class Landing extends Component {
         <Packages />
         <Samples />
         <Personas />
+        <DesignBlog />
       </div>
     );
   }

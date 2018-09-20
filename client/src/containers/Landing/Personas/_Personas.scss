@@ -1,0 +1,14 @@
+@import "./Persona/Persona";
+
+.Personas--border-right {
+  border-right: 1px solid #e1e3e4;
+}
+
+.Personas__title {
+  text-align: center;
+  font-weight: 600;
+  font-size: 2em;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  font-family: lato;
+}
