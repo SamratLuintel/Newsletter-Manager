@@ -1,0 +1,42 @@
+.DesignBlog {
+  height: 400px;
+  width: 100%;
+  background-color: #fff;
+  display: table;
+}
+
+.DesignBlog__designer-background {
+  background: url("./assets/images/designer.jpg");
+  background-size: cover;
+  height: 100%;
+  width: 50%;
+  display: table-cell;
+}
+
+.DesignBlog__content {
+  display: table-cell;
+  background-color: #f6f9fc;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.DesignBlog__title {
+  font-weight: 600;
+  font-size: 1.8rem;
+  font-family: lato;
+  line-height: 1.15;
+}
+
+.DesignBlog__description {
+  font-family: lato;
+  color: #333;
+  font-size: 0.9em;
+  line-height: 1.5em;
+  margin-top: 1em;
+}
+
+.DesignBlog__button {
+  @include main-rounded-btn($darkSkyBlue);
+}
