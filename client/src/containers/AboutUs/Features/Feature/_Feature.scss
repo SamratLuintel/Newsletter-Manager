@@ -1,0 +1,31 @@
+.Feature__content {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  @include for-desktop-up {
+    padding-left: 8em;
+    padding-right: 4em;
+  }
+}
+
+.Feature__title {
+  font-family: lato;
+  color: #333;
+  font-size: 2.1em;
+  margin: 0.83em 0;
+}
+
+.Feature__subtitle {
+  color: #5c6a72;
+  font-family: lato;
+  font-weight: 400;
+  font-size: 1.2em;
+  line-height: 1.4em;
+  margin: 1em 0;
+}
+
+.Feature__button {
+  @include main-rounded-btn($darkSkyBlue);
+}
+.Feature__image {
+  max-width: 100%;
+}
