@@ -1,0 +1,55 @@
+.DesktopNav {
+  position: absolute;
+  top: 40px;
+  z-index: 999;
+  right: 20px;
+  display: flex;
+}
+
+.DesktopNav__menu {
+  display: flex;
+}
+
+.DesktopNav__nav {
+  list-style: none;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-left: 1px solid hsla(0, 0%, 100%, 0.5);
+
+  &:first-child {
+    border-left: none;
+  }
+}
+
+.DesktopNav__nav-item {
+  text-decoration: none;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: #fff;
+  border-radius: 3px;
+
+  cursor: pointer;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: 0.3s linear;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+.DesktopNav__login {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.3rem 1.3rem;
+  letter-spacing: 1px;
+  border: 1px solid #fff;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  transition: 0.3s linear;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+}
