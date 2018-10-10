@@ -1,0 +1,37 @@
+.MainSection {
+  height: 681px;
+  background: url("./assets/images/main-section-bg.jpg") no-repeat bottom;
+
+  position: relative;
+}
+
+.MainSection__content {
+  max-width: 85rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.MainSection__content__title {
+  font-weight: 400;
+  font-size: 2.5rem;
+  margin: 0.67em 0;
+}
+
+.MainSection__content__subtitle {
+  font-weight: 400;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  line-height: 1.5em;
+  margin: 0.83em 0;
+}
+
+.MainSection__content__button {
+  @include main-rounded-outline-btn(#fff, 2px);
+  margin-top: 1rem;
+}

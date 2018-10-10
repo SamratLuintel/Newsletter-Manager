@@ -78,3 +78,17 @@
     background-color: lighten($brandColor, 10%);
   }
 }
+
+@mixin main-rounded-outline-btn($brandColor, $borderWidth) {
+  padding: 0.8em 2em;
+  letter-spacing: 1px;
+  font-size: 1.1em;
+  border-radius: 9999px;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.2s;
+  margin-top: 30px;
+  border: $borderWidth solid $brandColor;
+}

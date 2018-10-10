@@ -1,5 +1,5 @@
 .Hero {
-  background: url("assets/images/hero-bg.jpg");
+  background: url("./assets/images/hero-bg.jpg");
   background-image: -webkit-gradient(
     linear,
     left top,
@@ -38,13 +38,13 @@
     height: 950px;
   }
   &__layer-1 {
-    background: url("assets/images/parallax1.png");
+    background: url("./assets/images/parallax1.png");
   }
   &__layer-2 {
-    background: url("assets/images/parallax2.png");
+    background: url("./assets/images/parallax2.png");
   }
   &__layer-3 {
-    background: url("assets/images/parallax3.png");
+    background: url("./assets/images/parallax3.png");
   }
 }
 

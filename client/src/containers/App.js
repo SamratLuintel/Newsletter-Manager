@@ -12,12 +12,21 @@ import Templates from "./Templates/Templates";
 import { connect } from "react-redux";
 import CreateTemplate from "./Templates/CreateTemplate/CreateTemplate";
 import EditTemplate from "./EditTemplate/EditTemplate";
+import asyncComponent from "../components/utils/asyncComponent/asyncComponent";
+
+const AboutUsPage = asyncComponent(() =>
+  import("./AboutUs/AboutUs").then(module => module.default)
+);
+const LandingPage = asyncComponent(() =>
+  import("./Landing/Landing").then(module => module.default)
+);
 
 class App extends Component {
   routeUnauthenticated() {
     return (
       <div>
-        <Route exact path="/" component={Landing} />
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/about" component={AboutUsPage} />
         <Route exact path="/signup" component={SignUp} />
       </div>
     );

@@ -2,13 +2,13 @@ import { slide as Menu } from "react-burger-menu";
 
 import React, { Component } from "react";
 
-class DesktopSideNav extends Component {
+class LandingSideNav extends Component {
   showSettings(event) {
     event.preventDefault();
   }
   render() {
     return (
-      <Menu className="DesktopSideNav">
+      <Menu className="LandingSideNav">
         <a id="home" className="bm-item-list" href="/">
           Home
         </a>
@@ -23,4 +23,4 @@ class DesktopSideNav extends Component {
   }
 }
 
-export default DesktopSideNav;
+export default LandingSideNav;
