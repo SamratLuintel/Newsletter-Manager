@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import icoPro from "../../../assets/images/ico-pro.png";
-import PackageCard from "./PackageCard/PackageCard";
+import PackageCard from "../../../components/PackageCard/PackageCard";
 
 class Packages extends Component {
   render() {

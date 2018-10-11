@@ -3,6 +3,7 @@ import DesktopNav from "../../components/DesktopNav/DesktopNav";
 import MainSection from "./MainSection/MainSection";
 import LandingSideNav from "../../components/LandingSideNav/LandingSideNav";
 import Features from "./Features/Features";
+import Products from "./Products/Products";
 
 class AboutUs extends Component {
   render() {
@@ -12,6 +13,7 @@ class AboutUs extends Component {
         <LandingSideNav />
         <MainSection />
         <Features />
+        <Products />
       </div>
     );
   }
