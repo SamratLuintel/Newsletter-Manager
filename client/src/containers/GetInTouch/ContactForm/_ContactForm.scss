@@ -1,0 +1,49 @@
+@import "./SingleField/SingleField";
+
+.ContactForm {
+  background: url("./assets/images/pattern.png");
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.ContactForm__header__title {
+  text-align: center;
+  color: #333;
+  font-size: 2.1em;
+  font-weight: 600;
+  font-family: lato;
+}
+
+.ContactForm__header__subtitle {
+  text-align: center;
+  color: #5c6a72;
+  font-family: lato;
+  font-weight: 400;
+  font-size: 1.2em;
+  line-height: 1.4em;
+  margin-top: 0.25em;
+}
+
+.ContactForm__form-container {
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-top: 20px;
+}
+
+.ContactForm__form {
+  padding: 4rem;
+}
+
+.ContactForm__form-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ContactForm__form-submit {
+  @include main-rounded-btn($primaryBlue);
+  margin-top: 0px;
+  padding: 0.6em 1.5em;
+  font-size: 1rem;
+}
