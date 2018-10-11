@@ -1,0 +1,32 @@
+.PageTitle {
+  background: url("./assets/images/get-in-touch.png") no-repeat 50%;
+  background-size: cover;
+  height: 340px;
+  margin-top: 100px;
+  box-sizing: border-box;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.PageTitle__container {
+  padding-left: 30px;
+  padding-right: 30px;
+  max-width: 85rem;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.PageTitle__title {
+  color: #fff;
+  font-size: 3.2em;
+  font-weight: 600;
+  font-family: lato;
+  margin-bottom: 1rem;
+}
+
+.PageTitle__subtitle {
+  font-family: lato;
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.4em;
+}

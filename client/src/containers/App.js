@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import SignUp from "./SignUp/SignUp";
-import Landing from "./Landing/Landing";
 import EditCampaign from "./EditCampaign/EditCampaign";
 import Dashboard from "./Dashboard/Dashboard";
 import Campaigns from "./Campaigns/Campaigns";
@@ -13,6 +12,7 @@ import { connect } from "react-redux";
 import CreateTemplate from "./Templates/CreateTemplate/CreateTemplate";
 import EditTemplate from "./EditTemplate/EditTemplate";
 import asyncComponent from "../components/utils/asyncComponent/asyncComponent";
+import GetInTouch from "./GetInTouch/GetInTouch";
 
 const AboutUsPage = asyncComponent(() =>
   import("./AboutUs/AboutUs").then(module => module.default)
@@ -28,6 +28,7 @@ class App extends Component {
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/about" component={AboutUsPage} />
         <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/get-in-touch" component={GetInTouch} />
       </div>
     );
   }
@@ -85,7 +86,7 @@ const mapDispatchToProps = dispatch => ({
   fetchTemplates: bindActionCreators(fetchTemplates, dispatch)
 });
 
-//It is for solving the problem with react router v4 beta. It does not work correctly with connect
+//withRouter is used for solving the problem with react router v4 beta. It does not work correctly with connect
 export default withRouter(
   connect(
     mapStateToProps,
