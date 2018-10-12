@@ -21,8 +21,8 @@ const DesktopNav = props => {
     <div className="DesktopNav">
       <ul className="DesktopNav__menu">
         <li className={desktopNavClasses}>
-          <Link className={desktopNavItemClasses} to="/about">
-            About
+          <Link className={desktopNavItemClasses} to="/">
+            HOME
           </Link>
         </li>
         <li className={desktopNavClasses}>
@@ -31,13 +31,13 @@ const DesktopNav = props => {
           </Link>
         </li>
         <li className={desktopNavClasses}>
-          <Link className={desktopNavItemClasses} to="/about">
-            About
+          <Link className={desktopNavItemClasses} to="/">
+            PlaceHolder
           </Link>
         </li>
         <li className={desktopNavClasses}>
-          <Link className={desktopNavItemClasses} to="/about">
-            About
+          <Link className={desktopNavItemClasses} to="/get-in-touch">
+            GET IN TOUCH
           </Link>
         </li>
         <li className={desktopNavClasses}>

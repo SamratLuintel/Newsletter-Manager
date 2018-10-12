@@ -7,8 +7,16 @@
 .Personas__title {
   text-align: center;
   font-weight: 600;
-  font-size: 2em;
+  font-size: 1.2em;
   padding-top: 4rem;
   padding-bottom: 4rem;
   font-family: lato;
+
+  @include for-tablet-portrait-up {
+    font-size: 1.7em;
+  }
+
+  @include for-tablet-landscape-up {
+    font-size: 2em;
+  }
 }

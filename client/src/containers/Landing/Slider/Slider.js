@@ -6,12 +6,20 @@ const settings = {
   lazyload: true,
   nav: false,
   mouseDrag: true,
-  items: 8,
+  items: 2,
   controls: false,
   autoplay: true,
   autoplayTimeout: 2000,
   autoplayButtonOutput: false,
-  autoplayButton: false
+  autoplayButton: false,
+  responsive: {
+    1100: {
+      items: 6
+    },
+    900: {
+      items: 3
+    }
+  }
 };
 
 class Slider extends Component {

@@ -10,8 +10,19 @@
     to(#19c2b4)
   );
   min-height: 650px;
+  box-sizing: border-box;
   position: relative;
   overflow: hidden;
+  padding-top: 200px;
+}
+
+.Hero__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  @media screen and (min-width: 980px) {
+    flex-direction: row;
+  }
 }
 
 .Hero__diagonal {
@@ -50,12 +61,24 @@
 
 .Hero__content {
   color: #fff;
-  margin-top: 100px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  @media screen and (min-width: 980px) {
+    width: 50%;
+    text-align: left;
+    margin-bottom: 0px;
+  }
 }
 
 .Hero__title {
   font-weight: 400;
   font-size: 2.4em;
+  font-family: Lato;
+  margin-bottom: 0.86em;
+  @include for-phone-only {
+    font-size: 1.8em;
+  }
 }
 
 .Hero__subtitle {
@@ -63,15 +86,26 @@
   font-weight: 400;
   font-size: 1.2em;
   line-height: 1.8em;
+  margin: 0.83em 0;
+  @include for-phone-only {
+    font-size: 1.1em;
+  }
 }
 
 .Hero__design-button {
   @include main-rounded-btn($darkSkyBlue);
 }
 
+.Hero__image-container {
+  width: 100%;
+  @media screen and (min-width: 980px) {
+    width: 50%;
+  }
+}
+
 .Hero__image {
   position: relative;
   max-width: 100%;
-  margin-top: 100px;
+
   z-index: 100;
 }

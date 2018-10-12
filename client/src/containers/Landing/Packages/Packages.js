@@ -7,8 +7,8 @@ class Packages extends Component {
     return (
       <div className="Packages">
         <div className="container">
-          <div className="row">
-            <div className="col-md-4">
+          <div className="Packages__container">
+            <div className="Packages__single-package-container">
               <PackageCard
                 imgSrc={icoPro}
                 bannerText="TRY"
@@ -19,7 +19,7 @@ class Packages extends Component {
                 brandColor="#179dc7"
               />
             </div>
-            <div className="col-md-4">
+            <div className="Packages__single-package-container">
               <PackageCard
                 imgSrc={icoPro}
                 bannerText="DESIGN"
@@ -30,7 +30,7 @@ class Packages extends Component {
                 brandColor="#8a3b8f"
               />
             </div>
-            <div className="col-md-4">
+            <div className="Packages__single-package-container">
               <PackageCard
                 imgSrc={icoPro}
                 bannerText="CONQUER"

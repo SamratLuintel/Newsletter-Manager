@@ -1,0 +1,14 @@
+.Packages__container {
+  display: flex;
+  flex-direction: column;
+  @include for-tablet-landscape-up {
+    flex-direction: row;
+  }
+}
+
+.Packages__single-package-container {
+  width: 100%;
+  @include for-tablet-landscape-up {
+    width: 33.33%;
+  }
+}

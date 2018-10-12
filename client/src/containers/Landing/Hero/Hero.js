@@ -20,19 +20,17 @@ class Hero extends Component {
           <div data-depth="0.6" className="Hero__parallax__layer-3" />
         </div>
         <div className="container">
-          <div className="row">
-            <div className="col-md-6">
-              <div className="Hero__content">
-                <h1 className="Hero__title">Create beautiful emails,fast</h1>
-                <h2 className="Hero__subtitle">
-                  EMM is the easiest,quickest way to design elegant,mobile
-                  responsive emails. Discover why over 1,000,000 people have
-                  used our email editor
-                </h2>
-                <button className="Hero__design-button">START DESIGNING</button>
-              </div>
+          <div className="Hero__container">
+            <div className="Hero__content">
+              <h1 className="Hero__title">EMM - Create beautiful emails</h1>
+              <h2 className="Hero__subtitle">
+                EMM is the easiest,quickest way to design elegant,mobile
+                responsive emails. Discover why over 1,000,000 people have used
+                our email editor
+              </h2>
+              <button className="Hero__design-button">START DESIGNING</button>
             </div>
-            <div className="col-md-6">
+            <div className="Hero__image-container">
               <img className="Hero__image" src={hero} alt="" />
             </div>
           </div>

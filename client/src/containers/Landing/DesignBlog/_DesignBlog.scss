@@ -1,32 +1,49 @@
 .DesignBlog {
-  height: 400px;
+  min-height: 400px;
   width: 100%;
   background-color: #fff;
-  display: table;
+
+  @include for-tablet-portrait-up {
+    display: table;
+  }
 }
 
 .DesignBlog__designer-background {
-  background: url("./assets/images/designer.jpg");
+  background: url("./assets/images/designer.jpg") no-repeat top;
   background-size: cover;
-  height: 100%;
-  width: 50%;
-  display: table-cell;
+  height: 200px;
+  width: 100%;
+
+  @include for-tablet-portrait-up {
+    height: 100%;
+    width: 50%;
+    display: table-cell;
+  }
 }
 
 .DesignBlog__content {
   display: table-cell;
   background-color: #f6f9fc;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  padding: 2rem;
+  text-align: center;
+
+  @include for-tablet-portrait-up {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
 }
 
 .DesignBlog__title {
   font-weight: 600;
-  font-size: 1.8rem;
+  font-size: 1.1rem;
   font-family: lato;
   line-height: 1.15;
+
+  @include for-tablet-portrait-up {
+    font-size: 1.8rem;
+  }
 }
 
 .DesignBlog__description {
