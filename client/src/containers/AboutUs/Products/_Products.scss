@@ -1,5 +1,5 @@
 .Products {
-  height: 645px;
+  min-height: 645px;
   background: url("./assets/images/more-bg.jpg");
 }
 .Products {
@@ -7,8 +7,16 @@
   padding-bottom: 8rem;
 }
 
+.Products__header {
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
 .Products__Package-container {
-  width: 80%;
+  width: 100%;
+
+  @include for-tablet-landscape-up {
+    width: 80%;
+  }
 }
 
 .Products__header {
@@ -18,14 +26,25 @@
 
 .Products__header__title {
   font-family: lato;
-  font-size: 2.4em;
+  font-size: 1.2em;
   font-weight: 600;
   margin-bottom: 0.5rem;
+
+  @include for-tablet-portrait-up {
+    font-size: 1.6em;
+  }
+  @include for-tablet-landscape-up {
+    font-size: 2.4em;
+  }
 }
 
 .Products__header__subtitle {
   font-family: lato;
   font-weight: 400;
-  font-size: 1.3em;
+  font-size: 1em;
   margin-bottom: 0.7em;
+
+  @include for-tablet-portrait-up {
+    font-size: 1.3em;
+  }
 }

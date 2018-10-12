@@ -1,7 +1,9 @@
 .Feature__content {
   padding-top: 4rem;
   padding-bottom: 4rem;
+  text-align: center;
   @include for-desktop-up {
+    text-align: left;
     padding-left: 8em;
     padding-right: 4em;
   }
@@ -10,17 +12,25 @@
 .Feature__title {
   font-family: lato;
   color: #333;
-  font-size: 2.1em;
+  font-size: 1.7em;
   margin: 0.83em 0;
+
+  @include for-tablet-portrait-up {
+    font-size: 2.1em;
+  }
 }
 
 .Feature__subtitle {
   color: #5c6a72;
   font-family: lato;
   font-weight: 400;
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1.4em;
   margin: 1em 0;
+
+  @include for-tablet-portrait-up {
+    font-size: 1.2em;
+  }
 }
 
 .Feature__button {

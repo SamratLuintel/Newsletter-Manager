@@ -2,21 +2,31 @@
 
 .Features__header {
   margin-bottom: 40px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 .Features__title {
   text-align: center;
   font-family: Lato;
   color: #333;
   font-weight: 600;
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   padding-left: 1rem;
   padding-right: 1rem;
   margin-bottom: 0.5rem;
+
+  @include for-tablet-portrait-up {
+    font-size: 2.4rem;
+  }
 }
 
 .Features__subtitle {
   font-family: Lato;
   font-weight: 400;
-  font-size: 1.3em;
+  font-size: 1em;
   text-align: center;
+
+  @include for-tablet-portrait-up {
+    font-size: 1.3em;
+  }
 }
