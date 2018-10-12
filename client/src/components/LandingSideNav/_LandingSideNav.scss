@@ -9,15 +9,10 @@
   height: 30px;
   top: 36px;
   display: block;
-
+  z-index: 999;
   @include for-tablet-landscape-up {
     display: none;
   }
-}
-
-/* Color/shape of burger icon bars */
-.bm-burger-bars {
-  background: #fff;
 }
 
 /* Position and sizing of clickable cross button */

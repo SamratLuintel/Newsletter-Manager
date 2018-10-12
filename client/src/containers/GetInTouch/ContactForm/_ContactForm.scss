@@ -25,16 +25,24 @@
 }
 
 .ContactForm__form-container {
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   border-radius: 10px;
   background-color: #fff;
   margin-top: 20px;
+
+  @include for-tablet-landscape-up {
+    width: 70%;
+  }
 }
 
 .ContactForm__form {
-  padding: 4rem;
+  padding: 2rem;
   box-shadow: 0 0 20px -1px #e1e3e4;
+
+  @include for-tablet-landscape-up {
+    padding: 4rem;
+  }
 }
 
 .ContactForm__form-footer {

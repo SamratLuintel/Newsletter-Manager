@@ -2,7 +2,7 @@
   background: url("./assets/images/get-in-touch.png") no-repeat 50%;
   background-size: cover;
   height: 340px;
-  margin-top: 100px;
+
   box-sizing: border-box;
   padding-top: 8rem;
   padding-bottom: 8rem;
@@ -18,15 +18,26 @@
 
 .PageTitle__title {
   color: #fff;
-  font-size: 3.2em;
+  font-size: 1.9em;
   font-weight: 600;
   font-family: lato;
   margin-bottom: 1rem;
+
+  @include for-tablet-portrait-up {
+    font-size: 2.6em;
+  }
+  @include for-tablet-landscape-up {
+    font-size: 3.2em;
+  }
 }
 
 .PageTitle__subtitle {
   font-family: lato;
   color: #fff;
   font-weight: 400;
-  font-size: 1.4em;
+  font-size: 1.1em;
+
+  @include for-tablet-portrait-up {
+    font-size: 1.4em;
+  }
 }
