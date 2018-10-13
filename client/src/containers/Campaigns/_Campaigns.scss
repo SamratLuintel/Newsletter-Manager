@@ -6,6 +6,8 @@ $campaignManager-width: 1300px;
 .CampaignManager {
   max-width: $campaignManager-width;
   margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .CampaignManager__header {
@@ -13,8 +15,16 @@ $campaignManager-width: 1300px;
   width: 100%;
   justify-content: space-between;
   margin-top: 40px;
+  flex-direction: column;
+
+  @include for-tablet-portrait-up {
+    flex-direction: row;
+  }
 }
 
+.CampaignManager__header__caption-text {
+  margin-bottom: 10px;
+}
 .CampaignManager__sidebar {
   width: 150px;
 }
@@ -22,10 +32,20 @@ $campaignManager-width: 1300px;
 .CampaignManager__body {
   margin-top: 50px;
   display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  overflow: hidden;
+  @include for-tablet-portrait-up {
+    flex-direction: row;
+  }
 }
 
 .CampaignManager__listOuter {
-  margin-left: 120px;
+  margin-left: 40px;
+
+  @include for-tablet-landscape-up {
+    margin-left: 120px;
+  }
   width: 100%;
 }
 

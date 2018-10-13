@@ -2,10 +2,15 @@
   margin-bottom: 20px;
   position: relative;
   padding-left: 44px;
+  box-sizing: border-box;
   display: flex;
 }
+
 .CampaignList__body {
-  width: 300px;
+  max-width: 300px;
+  @include for-tablet-portrait-up {
+    width: 300px;
+  }
 }
 .CampaignList__icon {
   position: absolute;

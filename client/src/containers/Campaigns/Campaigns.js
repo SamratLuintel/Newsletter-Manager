@@ -4,13 +4,14 @@ import SideBar from "./SideBar/SideBar";
 import Actionbar from "./ActionBar/ActionBar";
 import CampaignsLists from "./CampaignsLists/CampaignsLists";
 import CreateCampaign from "./CreateCampaign/CreateCampaign";
+import ApplicationSideNav from "../../components/ApplicationSideNav/ApplicationSideNav";
 
 class Campaigns extends Component {
   // Create Campaign button is present in the header
   renderCampaignManagerHeader() {
     return (
       <div className="CampaignManager__header">
-        <h1>Campaigns</h1>
+        <h1 className="CampaignManager__header__caption-text">Campaigns</h1>
         <CreateCampaign />
       </div>
     );
@@ -21,6 +22,7 @@ class Campaigns extends Component {
   render() {
     return (
       <div>
+        <ApplicationSideNav />
         <ApplicationHeader />
         <div className="CampaignManager">
           {this.renderCampaignManagerHeader()}

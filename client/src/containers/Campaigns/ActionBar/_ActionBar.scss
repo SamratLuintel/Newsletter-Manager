@@ -1,8 +1,12 @@
 $searchColor: #d0d0d0;
 
 .CampaignManager__actionBar {
-  display: flex;
+  display: none;
   justify-content: space-between;
+
+  @include for-tablet-landscape-up {
+    display: flex;
+  }
 }
 
 .CampaignManager__search {
