@@ -26,7 +26,11 @@ $navitem-paddingY: 15px;
 
 .navbar {
   list-style: none;
-  display: flex;
+  display: none;
+
+  @include for-tablet-landscape-up {
+    display: flex;
+  }
 }
 
 .navbar__navitem {

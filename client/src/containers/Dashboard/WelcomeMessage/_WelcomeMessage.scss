@@ -1,5 +1,12 @@
 .WelcomeMessage {
-  margin-top: 30px;
+  margin-top: 80px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  @include for-tablet-landscape-up {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
 .WelcomeMessage__heading-text {
@@ -13,9 +20,13 @@
   color: #241c15;
   font-size: 1.2rem;
   font-family: Lato;
-  font-size: 3.2rem;
+  font-size: 2.1rem;
   font-weight: 400;
   margin-bottom: 10px;
+
+  @include for-tablet-portrait-up {
+    font-size: 3rem;
+  }
 }
 
 .WelcomeMessage__percentage-completed {
@@ -25,6 +36,7 @@
 
 .progressbar-container {
   background-color: #f2f2f2;
+  width: 100%;
 }
 
 .progressbar-progress {
