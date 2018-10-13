@@ -7,15 +7,28 @@ $Template-width: 1300px;
 .Template {
   max-width: $Template-width;
   margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .Template__header {
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
+  margin-bottom: 20px;
+  flex-direction: column;
+
+  @include for-tablet-portrait-up {
+    flex-direction: row;
+  }
+}
+
+.Template__header__h1 {
+  margin-bottom: 10px;
 }
 
 .Template__header__create {
   @include main-action-btn;
+  height: 40px;
 }
 
 .Template__header__create__text {

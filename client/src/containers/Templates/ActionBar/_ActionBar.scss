@@ -1,7 +1,11 @@
 .Template__actionbar {
   margin-top: 30px;
-  display: flex;
+  display: none;
   margin-bottom: 20px;
+
+  @include for-tablet-landscape-up {
+    display: flex;
+  }
 }
 
 .Template__sortDropDown__select {
