@@ -1,16 +1,16 @@
 import React, { Component, Fragment } from "react";
-import Header from "../../components/Header/Header";
+import ApplicationHeader from "../../components/ApplicationHeader/ApplicationHeader";
 import WelcomeMessage from "./WelcomeMessage/WelcomeMessage";
-import Instructions from "./Instructions/Instructions";
+import TodoList from "./TodoList/TodoList";
 
 class Dashboard extends Component {
   render() {
     return (
       <Fragment>
-        <Header />
+        <ApplicationHeader />
         <div className="Dashboard">
           <WelcomeMessage />
-          <Instructions />
+          <TodoList />
         </div>
       </Fragment>
     );

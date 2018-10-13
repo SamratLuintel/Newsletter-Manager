@@ -5,10 +5,29 @@
 .WelcomeMessage__heading-text {
   color: $secondaryGrey;
   font-weight: 500;
-  line-height: 38px;
+  // line-height: 38px;
+  margin-bottom: 6px;
 }
 
-.WelcomeMessage__sub-text {
-  color: $primaryGrey;
+.WelcomeMessage__emphasis-text {
+  color: #241c15;
   font-size: 1.2rem;
+  font-family: Lato;
+  font-size: 3.2rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.WelcomeMessage__percentage-completed {
+  font-weight: 500;
+  margin-top: 7px;
+}
+
+.progressbar-container {
+  background-color: #f2f2f2;
+}
+
+.progressbar-progress {
+  height: 30px !important;
+  background: linear-gradient(#00c14e, #00c14e);
 }

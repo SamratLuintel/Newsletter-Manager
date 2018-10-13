@@ -1,0 +1,46 @@
+.TodoListItem {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.TodoListItem__media-image__icon {
+  width: 54px;
+  height: 54px;
+  margin-right: 18px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  position: relative;
+  border: solid 1px lighten($primaryGrey, 20%);
+}
+
+.TodoListItem__media-image__icon--grey {
+  background-color: lighten($primaryGrey, 40%);
+  border: none;
+}
+
+.TodoListItem__media-image__icon__todo-tick {
+  color: $primaryGreen;
+  position: absolute;
+  top: 13px;
+  left: 15px;
+  font-size: 25px;
+}
+
+.TodoListItem__media-image__icon__todo-tick--disable {
+  display: none;
+}
+
+.TodoListItem__media-body__text {
+  font-family: Roboto;
+  line-height: 1.25;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.TodoList__media-body__text--grey {
+  color: $primaryGrey;
+}
+.TodoListItem__media-body__text--black {
+  color: #241c15;
+}

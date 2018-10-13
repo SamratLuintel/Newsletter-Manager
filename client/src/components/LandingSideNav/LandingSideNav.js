@@ -30,8 +30,8 @@ class LandingSideNav extends Component {
         <a id="about" className="bm-item-list" href="/about">
           About
         </a>
-        <a id="contact" className="bm-item-list" href="/contact">
-          Contact
+        <a id="contact" className="bm-item-list" href="/get-in-touch">
+          Get In Touch
         </a>
       </Menu>
     );

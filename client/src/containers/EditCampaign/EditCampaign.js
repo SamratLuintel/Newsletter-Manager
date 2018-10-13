@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from "react";
-import Header from "../../components/Header/Header";
+import ApplicationHeader from "../../components/ApplicationHeader/ApplicationHeader";
 import CampaignEditor from "./CampaignEditor/CampaignEditor";
 
 class EditCampaign extends Component {
   render() {
     return (
       <Fragment>
-        <Header />
+        <ApplicationHeader />
         <CampaignEditor id={this.props.match.params.id} />
       </Fragment>
     );

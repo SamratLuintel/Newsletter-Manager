@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
   clearCurrentProfile,
   logoutUser
-} from "../../../store/actions/profile/profile";
+} from "../../store/actions/profile/profile";
 import { connect } from "react-redux";
 
 class LoggedInHeader extends Component {

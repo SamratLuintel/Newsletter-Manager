@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Header from "../../components/Header/Header";
+import ApplicationHeader from "../../components/ApplicationHeader/ApplicationHeader";
 import SideBar from "./SideBar/SideBar";
 import Actionbar from "./ActionBar/ActionBar";
 import CampaignsLists from "./CampaignsLists/CampaignsLists";
@@ -21,7 +21,7 @@ class Campaigns extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <ApplicationHeader />
         <div className="CampaignManager">
           {this.renderCampaignManagerHeader()}
           <div className="CampaignManager__body">
