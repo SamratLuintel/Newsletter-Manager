@@ -6,6 +6,10 @@ const campaignSchema = new Schema({
     type: String,
     required: true
   },
+  _user: {
+    type: Schema.Types.ObjectId,
+    ref: "users"
+  },
   createdAt: {
     type: Date,
     default: Date.now

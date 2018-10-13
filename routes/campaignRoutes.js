@@ -9,7 +9,7 @@ const sendMail = require("../services/sendMail");
 
 module.exports = app => {
   app.get("/user/campaigns", requireToken, async (req, res) => {
-    const campaigns = await Campaign.find();
+    const campaigns = await Campaign.find({ _user: req.user });
     res.send(campaigns);
   });
 
@@ -29,7 +29,8 @@ module.exports = app => {
       } else {
         try {
           await new Campaign({
-            name
+            name,
+            _user: req.user
           }).save();
           res.status(200).send();
         } catch (err) {

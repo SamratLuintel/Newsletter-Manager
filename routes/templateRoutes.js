@@ -11,7 +11,7 @@ module.exports = app => {
       const template = await new Template({
         json: templateJSON,
         name,
-        _user: req.user._id
+        _user: req.user
       }).save();
 
       res.status(200).send();
@@ -20,10 +20,10 @@ module.exports = app => {
     }
   });
 
-  app.get("/user/templates", async (req, res) => {
+  app.get("/user/templates", requireToken, async (req, res) => {
     console.log("GET ALL TEMPLATE IS CALLED");
     //Todo load the campaign of specific user
-    const templates = await Template.find();
+    const templates = await Template.find({ _user: req.user });
     res.send(templates);
   });
 
