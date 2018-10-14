@@ -90,9 +90,18 @@ class CreateTemplate extends Component {
         errorClosed: false
       });
     }
-    this.editor.saveDesign(design => {
-      const { auth, history } = this.props;
-      this.props.createTemplate(design, this.state.name, auth.token, history);
+    this.editor.exportHtml(data => {
+      const { html } = data;
+      this.editor.saveDesign(design => {
+        const { auth, history } = this.props;
+        this.props.createTemplate(
+          design,
+          this.state.name,
+          html,
+          auth.token,
+          history
+        );
+      });
     });
   };
   onLoad = async () => {

@@ -1,0 +1,46 @@
+.ProfileDropDown {
+  position: relative;
+  display: inline-block;
+  padding: $navitem-paddingY $navitem-paddingX;
+  color: $navitem-color;
+  display: inline-block;
+  vertical-align: top;
+  text-decoration: none;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.ProfileDropDown__links-container {
+  list-style-type: none;
+  top: 100%;
+  left: -40%;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  font-size: 1rem;
+  color: #49545a;
+  text-align: left;
+  list-style: none;
+  background-color: #f2f2f2;
+  background-clip: padding-box;
+  border: 1px solid rgba(55, 63, 67, 0.35);
+  border-radius: 0.25rem;
+  position: absolute;
+}
+
+.ProfileDropDown__links-container__link {
+  padding: 0.7rem 1rem;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  &:hover {
+    background-color: #42a2dc;
+    color: #fff;
+    a {
+      color: #fff;
+    }
+  }
+}

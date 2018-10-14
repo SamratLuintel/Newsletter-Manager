@@ -2,6 +2,8 @@ $header-height: 50px;
 $navitem-paddingX: 20px;
 $navitem-paddingY: 15px;
 
+@import "./ProfileDropDown/ProfileDropDown";
+
 //When the user is not logged in the navbar will be of white color
 // When the user is logged in the navbar will be of dark color
 // So I have make use of --loggedIn and --loggedOut for changing their behaviour.
@@ -10,7 +12,7 @@ $navitem-paddingY: 15px;
 .Header {
   display: flex;
   width: "100%";
-  box-sizing: content-box;
+  box-sizing: border-box;
   height: $header-height;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   justify-content: space-between;
@@ -22,6 +24,13 @@ $navitem-paddingY: 15px;
 
 .Header--dark {
   background-color: $dark-header-color;
+}
+
+.Header__brand {
+  padding-left: 40px;
+  padding-top: 15px;
+  font-weight: bold;
+  font-family: Mali;
 }
 
 .navbar {

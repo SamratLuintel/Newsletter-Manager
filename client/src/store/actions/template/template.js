@@ -65,6 +65,7 @@ export const saveTemplate = (
 export const createTemplate = (
   design,
   name,
+  html,
   token,
   history
 ) => async dispatch => {
@@ -74,7 +75,8 @@ export const createTemplate = (
       "/user/templates/create",
       {
         design,
-        name
+        name,
+        html
       },
       {
         headers: {
