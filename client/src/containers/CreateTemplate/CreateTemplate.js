@@ -1,15 +1,15 @@
 import React, { Component, Fragment } from "react";
 import EmailEditor from "react-email-editor";
 import axios from "axios";
-import isEmpty from "../../../utils/is-empty";
-import ErrorMessage from "../../../components/ErrorMessage/ErrorMessage";
-import ProgressMessage from "../../../components/ProgressMessage/ProgressMessage";
+import isEmpty from "../../utils/is-empty";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import ProgressMessage from "../../components/ProgressMessage/ProgressMessage";
 import {
   saveTemplate,
   createTemplate
-} from "../../../store/actions/template/template";
+} from "../../store/actions/template/template";
 import { withRouter } from "react-router-dom";
-import { resetSavingMessage } from "../../../store/actions/template/message";
+import { resetSavingMessage } from "../../store/actions/template/message";
 import { connect } from "react-redux";
 
 class CreateTemplate extends Component {

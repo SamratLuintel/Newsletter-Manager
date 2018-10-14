@@ -8,7 +8,7 @@ import { fetchToken } from "../store/actions/token";
 import { bindActionCreators } from "redux";
 import Templates from "./Templates/Templates";
 import { connect } from "react-redux";
-import CreateTemplate from "./Templates/CreateTemplate/CreateTemplate";
+import CreateTemplate from "./CreateTemplate/CreateTemplate";
 import EditTemplate from "./EditTemplate/EditTemplate";
 import asyncComponent from "../components/utils/asyncComponent/asyncComponent";
 import EditCampaign from "./EditCampaign/EditCampaign";
