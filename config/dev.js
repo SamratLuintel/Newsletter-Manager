@@ -5,5 +5,6 @@ module.exports = {
   mongoURI: "mongodb://localhost:27017/newsletter",
   tokenSecret: "asjkdjkkjsajkjjewjkfnsklqwklqw",
   googleEmail: "ngc2059@gmail.com",
-  googlePassword: "Samrattheking"
+  googlePassword: "Samrattheking",
+  absoluteURI: "localhost:3000"
 };
