@@ -35,6 +35,16 @@ require("./routes/templateRoutes")(app);
 require("./routes/campaignRoutes")(app);
 require("./routes/profileRoutes")(app);
 
+if (process.env.NODE_ENV === "production") {
+  // Express will serve up production assets
+
+  app.use(express.static("client/build"));
+
+  const path = require("path");
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 const port = 5000;
 
 app.listen(port, () => {

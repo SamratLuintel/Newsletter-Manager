@@ -11,6 +11,8 @@ import { connect } from "react-redux";
 import CreateTemplate from "./Templates/CreateTemplate/CreateTemplate";
 import EditTemplate from "./EditTemplate/EditTemplate";
 import asyncComponent from "../components/utils/asyncComponent/asyncComponent";
+import EditCampaign from "./EditCampaign/EditCampaign";
+import ErrorPage from "./ErrorPage/ErrorPage";
 
 //Lazy loading components
 const AboutUsPage = asyncComponent(() =>
@@ -27,10 +29,6 @@ const CampaignsPage = asyncComponent(() =>
   import("./Campaigns/Campaigns").then(module => module.default)
 );
 
-const EditCampaignPage = asyncComponent(() => {
-  import("./EditCampaign/EditCampaign").then(module => module.defau);
-});
-
 class App extends Component {
   routeUnauthenticated() {
     return (
@@ -39,6 +37,7 @@ class App extends Component {
         <Route exact path="/about" component={AboutUsPage} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/get-in-touch" component={GetInTouchPage} />
+        <Route component={ErrorPage} />
       </div>
     );
   }
@@ -51,14 +50,11 @@ class App extends Component {
           <Route exact path="/" component={Dashboard} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/campaigns" component={CampaignsPage} />
-          <Route
-            exact
-            path="/campaigns/edit/:id"
-            component={EditCampaignPage}
-          />
+          <Route exact path="/campaigns/edit/:id" component={EditCampaign} />
           <Route exact path="/templates" component={Templates} />
           <Route exact path="/templates/create" component={CreateTemplate} />
           <Route exact path="/templates/edit/:id" component={EditTemplate} />
+          <Route component={ErrorPage} />
         </Switch>
       </div>
     );
