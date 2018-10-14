@@ -37,6 +37,8 @@ class App extends Component {
         <Route exact path="/about" component={AboutUsPage} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/get-in-touch" component={GetInTouchPage} />
+
+        <Route exact path="/templates/create" component={CreateTemplate} />
       </div>
     );
   }
