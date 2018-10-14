@@ -6,5 +6,5 @@ module.exports = {
   tokenSecret: "asjkdjkkjsajkjjewjkfnsklqwklqw",
   googleEmail: "ngc2059@gmail.com",
   googlePassword: "Samrattheking",
-  absoluteURI: "localhost:3000"
+  absoluteURI: "http://localhost:3000"
 };
