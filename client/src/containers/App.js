@@ -37,7 +37,6 @@ class App extends Component {
         <Route exact path="/about" component={AboutUsPage} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/get-in-touch" component={GetInTouchPage} />
-        <Route component={ErrorPage} />
       </div>
     );
   }
@@ -54,7 +53,6 @@ class App extends Component {
           <Route exact path="/templates" component={Templates} />
           <Route exact path="/templates/create" component={CreateTemplate} />
           <Route exact path="/templates/edit/:id" component={EditTemplate} />
-          <Route component={ErrorPage} />
         </Switch>
       </div>
     );
