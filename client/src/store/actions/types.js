@@ -1,5 +1,6 @@
 export const SIGNUP = "sign_up";
 export const CLEAR_CURRENT_PROFILE = "clear_current_profile";
+export const UPDATE_USER_NAME = "update_user_name";
 
 export const UPDATE_TOKEN = "update_token";
 

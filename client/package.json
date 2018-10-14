@@ -24,6 +24,9 @@
     "/user/campaigns": {
       "target": "http://localhost:5000"
     },
+    "/user/get-user": {
+      "target": "http://localhost:5000"
+    },
     "/user/campaigns/create": {
       "target": "http://localhost:5000"
     }

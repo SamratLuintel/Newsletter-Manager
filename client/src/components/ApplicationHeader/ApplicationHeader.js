@@ -36,14 +36,20 @@ class LoggedInHeader extends Component {
             //   </a>
             // </li>
           }
-          <ProfileDropDown logout={this.onLogoutClick} />
+          <ProfileDropDown
+            name={this.props.profile.name}
+            logout={this.onLogoutClick}
+          />
         </ul>
       </div>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  profile: state.profile
+});
 export default connect(
-  null,
+  mapStateToProps,
   { clearCurrentProfile, logoutUser }
 )(withRouter(LoggedInHeader));

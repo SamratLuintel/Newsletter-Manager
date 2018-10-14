@@ -33,6 +33,7 @@ require("./services/passport");
 require("./routes/authRoutes")(app);
 require("./routes/templateRoutes")(app);
 require("./routes/campaignRoutes")(app);
+require("./routes/profileRoutes")(app);
 
 const port = 5000;
 

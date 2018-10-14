@@ -1,6 +1,21 @@
-import { CLEAR_CURRENT_PROFILE } from "../types";
+import { CLEAR_CURRENT_PROFILE, UPDATE_USER_NAME } from "../types";
 import { updateToken } from "../token";
 import axios from "axios";
+
+export const fetchUser = token => async dispatch => {
+  console.log("Fetch User is called", token);
+  const res = await axios.get("/user/get-user", {
+    headers: {
+      authorization: token
+    }
+  });
+  const name = res.data.firstName;
+  dispatch({
+    type: UPDATE_USER_NAME,
+    payload: name
+  });
+};
+
 export const clearCurrentProfile = () => {
   return {
     type: CLEAR_CURRENT_PROFILE

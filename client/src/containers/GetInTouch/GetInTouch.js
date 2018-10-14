@@ -4,6 +4,7 @@ import DesktopNav from "../../components/DesktopNav/DesktopNav";
 import ContactForm from "./ContactForm/ContactForm";
 import Social from "./Social/Social";
 import LandingSideNav from "../../components/LandingSideNav/LandingSideNav";
+import DesktopFooter from "../../components/DesktopFooter/DesktopFooter";
 
 class GetInTouch extends Component {
   render() {
@@ -15,6 +16,7 @@ class GetInTouch extends Component {
         <PageTitle />
         <ContactForm />
         <Social />
+        <DesktopFooter />
       </div>
     );
   }

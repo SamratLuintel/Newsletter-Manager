@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import userImg from "../../../assets/images/user.png";
+import { connect } from "react-redux";
+
 class ProfileDropDown extends Component {
   state = {
     displayMenu: false
@@ -31,7 +33,7 @@ class ProfileDropDown extends Component {
             alt=""
           />
           <div className="ProfileDropDown__button-container__text">
-            Samrat {"  "} <i class="fas fa-chevron-down" />
+            {this.props.name} {"  "} <i class="fas fa-chevron-down" />
           </div>
         </div>
         {this.state.displayMenu ? (

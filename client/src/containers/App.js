@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import SignUp from "./SignUp/SignUp";
-import EditCampaign from "./EditCampaign/EditCampaign";
 import Dashboard from "./Dashboard/Dashboard";
-import Campaigns from "./Campaigns/Campaigns";
 import { fetchCampaigns, fetchTemplates } from "../store/actions/actionsIndex";
+import { fetchUser } from "../store/actions/profile/profile";
 import { fetchToken } from "../store/actions/token";
 import { bindActionCreators } from "redux";
 import Templates from "./Templates/Templates";
@@ -12,14 +11,25 @@ import { connect } from "react-redux";
 import CreateTemplate from "./Templates/CreateTemplate/CreateTemplate";
 import EditTemplate from "./EditTemplate/EditTemplate";
 import asyncComponent from "../components/utils/asyncComponent/asyncComponent";
-import GetInTouch from "./GetInTouch/GetInTouch";
 
+//Lazy loading components
 const AboutUsPage = asyncComponent(() =>
   import("./AboutUs/AboutUs").then(module => module.default)
 );
 const LandingPage = asyncComponent(() =>
   import("./Landing/Landing").then(module => module.default)
 );
+const GetInTouchPage = asyncComponent(() =>
+  import("./GetInTouch/GetInTouch").then(module => module.default)
+);
+
+const CampaignsPage = asyncComponent(() =>
+  import("./Campaigns/Campaigns").then(module => module.default)
+);
+
+const EditCampaignPage = asyncComponent(() => {
+  import("./EditCampaign/EditCampaign").then(module => module.defau);
+});
 
 class App extends Component {
   routeUnauthenticated() {
@@ -28,7 +38,7 @@ class App extends Component {
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/about" component={AboutUsPage} />
         <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/get-in-touch" component={GetInTouch} />
+        <Route exact path="/get-in-touch" component={GetInTouchPage} />
       </div>
     );
   }
@@ -40,8 +50,12 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Dashboard} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/campaigns" component={Campaigns} />
-          <Route exact path="/campaigns/edit/:id" component={EditCampaign} />
+          <Route exact path="/campaigns" component={CampaignsPage} />
+          <Route
+            exact
+            path="/campaigns/edit/:id"
+            component={EditCampaignPage}
+          />
           <Route exact path="/templates" component={Templates} />
           <Route exact path="/templates/create" component={CreateTemplate} />
           <Route exact path="/templates/edit/:id" component={EditTemplate} />
@@ -69,6 +83,7 @@ class App extends Component {
     if (nextProps.auth && nextProps.auth.token) {
       nextProps.fetchCampaigns(nextProps.auth.token);
       nextProps.fetchTemplates(nextProps.auth.token);
+      nextProps.fetchUser(nextProps.auth.token);
     }
   };
   componentDidMount = () => {
@@ -83,7 +98,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchToken: bindActionCreators(fetchToken, dispatch),
   fetchCampaigns: bindActionCreators(fetchCampaigns, dispatch),
-  fetchTemplates: bindActionCreators(fetchTemplates, dispatch)
+  fetchTemplates: bindActionCreators(fetchTemplates, dispatch),
+  fetchUser: bindActionCreators(fetchUser, dispatch)
 });
 
 //withRouter is used for solving the problem with react router v4 beta. It does not work correctly with connect

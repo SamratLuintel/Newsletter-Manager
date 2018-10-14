@@ -8,6 +8,7 @@ import Clients from "./Clients/Clients";
 import Slider from "./Slider/Slider";
 import DesktopNav from "../../components/DesktopNav/DesktopNav";
 import LandingSideNav from "../../components/LandingSideNav/LandingSideNav";
+import DesktopFooter from "../../components/DesktopFooter/DesktopFooter";
 
 class Landing extends Component {
   render() {
@@ -22,6 +23,7 @@ class Landing extends Component {
         <DesignBlog />
         <Clients />
         <Slider />
+        <DesktopFooter />
       </div>
     );
   }

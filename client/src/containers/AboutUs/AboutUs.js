@@ -4,6 +4,7 @@ import MainSection from "./MainSection/MainSection";
 import LandingSideNav from "../../components/LandingSideNav/LandingSideNav";
 import Features from "./Features/Features";
 import Products from "./Products/Products";
+import DesktopFooter from "../../components/DesktopFooter/DesktopFooter";
 
 class AboutUs extends Component {
   render() {
@@ -14,6 +15,7 @@ class AboutUs extends Component {
         <MainSection />
         <Features />
         <Products />
+        <DesktopFooter />
       </div>
     );
   }

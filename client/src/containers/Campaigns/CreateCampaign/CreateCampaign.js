@@ -48,8 +48,8 @@ class CreateCampaign extends Component {
         </p>
         <br />
         <p className="CreateCampaign__alternate-text">Campaign Name</p>
-        {error && <p>{error}</p>}
-        <form onSubmit={this.onCampaignSubmit}>
+        {error && <p className="CreateCampaign__error">{error}</p>}
+        <form onSubmit={this.onCampaignSubmit} className="CreateCampaign__form">
           <input
             type="text"
             placeholder="Name"

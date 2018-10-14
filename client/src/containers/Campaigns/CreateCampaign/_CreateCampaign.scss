@@ -12,11 +12,31 @@
 
 .CreateCampaign__input {
   @include main-input;
+  @media (min-width: 500px) {
+    width: 300px;
+  }
   color: black;
+}
+
+.CreateCampaign__form {
+  display: flex;
+  flex-direction: column;
+  @include for-tablet-portrait-up {
+    flex-direction: row;
+  }
+}
+
+.CreateCampaign__error {
+  color: red;
 }
 
 .CreateCampaign__submit-btn {
   @include main-action-btn;
   height: 34px;
-  margin-left: 10px;
+  margin-left: 0px;
+  margin-top: 10px;
+  @include for-tablet-portrait-up {
+    margin-left: 10px;
+    margin-top: 0px;
+  }
 }
