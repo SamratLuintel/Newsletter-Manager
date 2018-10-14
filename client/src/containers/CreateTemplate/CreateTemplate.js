@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import EmailEditor from "react-email-editor";
+import EmailEditor from "react-email-editor/lib/index";
 import axios from "axios";
 import isEmpty from "../../utils/is-empty";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
