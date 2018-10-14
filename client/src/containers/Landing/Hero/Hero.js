@@ -28,7 +28,10 @@ class Hero extends Component {
                 responsive emails. Discover why over 1,000,000 people have used
                 our email editor
               </h2>
-              <button className="Hero__design-button">START DESIGNING</button>
+              <button className="Hero__design-button">
+                {" "}
+                <a href="/auth/google">SIGN UP NOW</a>{" "}
+              </button>
             </div>
             <div className="Hero__image-container">
               <img className="Hero__image" src={hero} alt="" />

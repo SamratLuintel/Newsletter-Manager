@@ -16,7 +16,21 @@
     background-color: lighten($primaryDark, 10%);
   }
 }
-
+.EditTemplate {
+  position: relative;
+  width: 1200px;
+  @media (min-width: 1200px) {
+    width: 100%;
+  }
+}
+.EditTemplate__BlackBox {
+  width: 400px;
+  height: 200px;
+  background-color: #f9f9f9;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
 .EditTemplate__header {
   display: flex;
   justify-content: space-between;

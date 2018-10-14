@@ -33,6 +33,9 @@ class LandingSideNav extends Component {
         <a id="contact" className="bm-item-list" href="/get-in-touch">
           Get In Touch
         </a>
+        <a id="about" className="bm-item-list" href="/auth/google">
+          Login
+        </a>
       </Menu>
     );
   }

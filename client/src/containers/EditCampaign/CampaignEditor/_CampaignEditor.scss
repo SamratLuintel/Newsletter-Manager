@@ -5,9 +5,11 @@
 @import "./TemplateEditor/TemplateEditor";
 
 .c-CampaignEditor {
-  width: 1300px;
+  max-width: 1300px;
   margin: 0 auto;
   margin-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .c-CampaignEditor__main-content {

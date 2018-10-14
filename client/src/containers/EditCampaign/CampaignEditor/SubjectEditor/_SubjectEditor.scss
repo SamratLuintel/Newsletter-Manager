@@ -4,11 +4,16 @@
   padding-top: 15px;
   padding-bottom: 15px;
   border-top: 1px dotted #e0e0e0;
+  flex-direction: column;
+  @include for-tablet-portrait-up {
+    flex-direction: row;
+  }
 }
 
 .SubjectEditor__action__button {
   @include main-action-btn;
   padding: 0.5em 1.2em;
+  margin-top: 10px;
 }
 
 .SubjectEditor__subject-input {

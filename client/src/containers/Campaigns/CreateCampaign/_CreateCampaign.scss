@@ -1,0 +1,22 @@
+.CreateCampaign__title {
+  font-size: 2rem;
+  font-family: Lato;
+  margin-bottom: 7px;
+}
+
+.CreateCampaign__alternate-text {
+  font-size: 1rem;
+  color: $secondaryGrey;
+  margin-bottom: 4px;
+}
+
+.CreateCampaign__input {
+  @include main-input;
+  color: black;
+}
+
+.CreateCampaign__submit-btn {
+  @include main-action-btn;
+  height: 34px;
+  margin-left: 10px;
+}

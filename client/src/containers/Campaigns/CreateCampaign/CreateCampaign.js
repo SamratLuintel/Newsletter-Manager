@@ -41,22 +41,25 @@ class CreateCampaign extends Component {
 
     return (
       <Modal triggerText="Create Campaign" ref={modal => (this.modal = modal)}>
-        <h1>Create an Email</h1>
-        <p>
+        <h1 className="CreateCampaign__title">Create an Campaign</h1>
+        <p className="CreateCampaign__Subtitle">
           Keep your subscribers engaged by sharing your latest news, promoting a
           line of products, or announcing an event.
         </p>
         <br />
-        <p>Campaign Name</p>
+        <p className="CreateCampaign__alternate-text">Campaign Name</p>
         {error && <p>{error}</p>}
         <form onSubmit={this.onCampaignSubmit}>
           <input
             type="text"
             placeholder="Name"
             value={campaignName}
+            className="CreateCampaign__input"
             onChange={this.onInputChange}
           />
-          <button type="Submit">Submit</button>
+          <button className="CreateCampaign__submit-btn" type="Submit">
+            Create
+          </button>
         </form>
       </Modal>
     );

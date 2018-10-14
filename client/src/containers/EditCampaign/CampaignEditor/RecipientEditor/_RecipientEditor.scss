@@ -2,11 +2,16 @@
   display: flex;
   justify-content: space-between;
   padding-bottom: 15px;
+  flex-direction: column;
+  @include for-tablet-portrait-up {
+    flex-direction: row;
+  }
 }
 
 .RecipientEditor__action__button {
   @include main-action-btn;
   padding: 0.5em 1.2em;
+  margin-top: 10px;
 }
 
 .RecipientEditor__recipients-list {

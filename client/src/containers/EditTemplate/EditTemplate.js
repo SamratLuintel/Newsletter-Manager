@@ -7,7 +7,7 @@ import ProgressMessage from "../../components/ProgressMessage/ProgressMessage";
 import { saveTemplate } from "../../store/actions/template/template";
 import { resetSavingMessage } from "../../store/actions/template/message";
 import { connect } from "react-redux";
-
+import { withRouter } from "react-router-dom";
 class EditTemplate extends Component {
   state = {
     name: "",
@@ -27,6 +27,13 @@ class EditTemplate extends Component {
     this.props.resetSavingMessage();
   };
 
+  onClickCancel = () => {
+    this.props.history.push("/templates");
+  };
+
+  onErrorClosed = () => {
+    this.setState({ error: "" });
+  };
   templateProgressMessage = () => {
     let progress;
     if (this.props.templateStatus.saving || this.props.templateStatus.saved) {
@@ -60,7 +67,10 @@ class EditTemplate extends Component {
               className="EditTemplate__name-input"
             />
             <div className="EditTemplate__button-container">
-              <div className="EditTemplate__cancel-btn EditTemplate__header__nav">
+              <div
+                onClick={this.onClickCancel}
+                className="EditTemplate__cancel-btn EditTemplate__header__nav"
+              >
                 Cancel
               </div>
               <div
@@ -84,6 +94,7 @@ class EditTemplate extends Component {
             ref={editor => (this.editor = editor)}
             onLoad={this.onLoad}
           />
+          <div className="EditTemplate__BlackBox" />
         </div>
       </Fragment>
     );
@@ -122,4 +133,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { saveTemplate, resetSavingMessage }
-)(EditTemplate);
+)(withRouter(EditTemplate));

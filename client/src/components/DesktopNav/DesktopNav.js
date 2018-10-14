@@ -41,7 +41,7 @@ const DesktopNav = props => {
           </Link>
         </li>
         <li className={desktopNavClasses}>
-          <a href="/login" className={loginButtonClass}>
+          <a href="/auth/google" className={loginButtonClass}>
             LOGIN <i class="fas fa-chevron-right" />
           </a>
         </li>

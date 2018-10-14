@@ -1,7 +1,9 @@
+$campaignManager-width: 1300px;
+
 @import "./SideBar/SideBar";
 @import "./ActionBar/ActionBar";
 @import "./CampaignsLists/CampaignsLists";
-$campaignManager-width: 1300px;
+@import "./CreateCampaign/CreateCampaign";
 
 .CampaignManager {
   max-width: $campaignManager-width;

@@ -79,6 +79,7 @@ class CreateTemplate extends Component {
             ref={editor => (this.editor = editor)}
             onLoad={this.onLoad}
           />
+          <div className="CreateTemplate__BlackBox" />
         </div>
       </Fragment>
     );

@@ -94,6 +94,10 @@
 
 .Hero__design-button {
   @include main-rounded-btn($darkSkyBlue);
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
 }
 
 .Hero__image-container {
