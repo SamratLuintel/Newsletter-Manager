@@ -16,7 +16,8 @@ class CreateTemplate extends Component {
   state = {
     name: "",
     error: "",
-    errorClosed: false
+    errorClosed: false,
+    loadEditor: false
   };
 
   onInputChange = e => {
@@ -39,6 +40,9 @@ class CreateTemplate extends Component {
     this.props.history.push("/templates");
   };
 
+  loadEditorEnabled = () => {
+    this.setState({ loadEditor: true });
+  };
   render() {
     return (
       <Fragment>
@@ -74,16 +78,22 @@ class CreateTemplate extends Component {
               />
             )}
           {this.templateProgressMessage()}
-          <EmailEditor
-            minHeight="100vh"
-            ref={editor => (this.editor = editor)}
-            onLoad={this.onLoad}
-          />
+          {this.state.loadEditor && (
+            <EmailEditor
+              minHeight="100vh"
+              ref={editor => (this.editor = editor)}
+            />
+          )}
+
           <div className="CreateTemplate__BlackBox" />
         </div>
       </Fragment>
     );
   }
+  componentDidMount = () => {
+    this.loadEditorEnabled();
+  };
+
   saveDesign = () => {
     if (isEmpty(this.state.name)) {
       return this.setState({
