@@ -100,6 +100,7 @@ module.exports = app => {
 
     try {
       const templateRes = await Template.findById(template);
+      console.log("Template Html is", templateRes);
       const templateHTML = JSON.parse(templateRes.html);
 
       const mailPromise = sendMail(

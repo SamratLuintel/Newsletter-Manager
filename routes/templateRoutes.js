@@ -5,12 +5,14 @@ const requireToken = passport.authenticate("jwt", { session: false });
 
 module.exports = app => {
   app.post("/user/templates/create", requireToken, async (req, res) => {
-    const { design, name } = req.body;
+    const { design, name, html } = req.body;
     const templateJSON = JSON.stringify(design);
+    const htmlJSON = JSON.stringify(html);
     try {
       const template = await new Template({
         json: templateJSON,
         name,
+        html: htmlJSON,
         _user: req.user
       }).save();
 

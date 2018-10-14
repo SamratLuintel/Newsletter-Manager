@@ -67,6 +67,7 @@ module.exports = app => {
         message: "You are not authenticated"
       });
     }
+
     const user = await User.findOne({ authId: req.session.authId });
     if (user) {
       const token = await tokenForUser(user);
@@ -76,5 +77,10 @@ module.exports = app => {
         message: "The user with provided authId does not exist"
       });
     }
+  });
+
+  app.post("/auth/logout", async (req, res) => {
+    req.session.authId = null;
+    res.status(200).send("Log out successful");
   });
 };
