@@ -4,5 +4,6 @@ module.exports = {
   mongoURI: process.env.MONGO_URI,
   tokenSecret: process.env.TOKEN_SECRET,
   googleEmail: process.env.GOOGLE_EMAIL,
-  googlePassword: process.env.GOOGLE_PASSWORD
+  googlePassword: process.env.GOOGLE_PASSWORD,
+  absoluteURI: process.env.ABSOLUTE_URI
 };
