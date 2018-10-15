@@ -35,13 +35,6 @@ require("./routes/templateRoutes")(app);
 require("./routes/campaignRoutes")(app);
 require("./routes/profileRoutes")(app);
 
-http.get("*", function(req, res) {
-  res.redirect("https://" + req.headers.host + req.url);
-
-  // Or, if you don't want to automatically detect the domain name from the request header, you can hard code it:
-  // res.redirect('https://example.com' + req.url);
-});
-
 if (process.env.NODE_ENV === "production") {
   // Express will serve up production assets
   // if not https redirect to https unless logging in using OAuth
