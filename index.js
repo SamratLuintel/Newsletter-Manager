@@ -35,9 +35,22 @@ require("./routes/templateRoutes")(app);
 require("./routes/campaignRoutes")(app);
 require("./routes/profileRoutes")(app);
 
+app.use(function(req, res, next) {
+  if (process.env.NODE_ENV === "production") {
+    const reqType = req.headers["x-forwarded-proto"];
+    // if not https redirect to https unless logging in using OAuth
+    if (reqType !== "http") {
+      req.url.indexOf("auth/google") !== -1
+        ? next()
+        : res.redirect("http://" + req.headers.host + req.url);
+    }
+  } else {
+    next();
+  }
+});
+
 if (process.env.NODE_ENV === "production") {
   // Express will serve up production assets
-  const reqType = req.headers["x-forwarded-proto"];
   // if not https redirect to https unless logging in using OAuth
   app.use(express.static("client/build"));
 
