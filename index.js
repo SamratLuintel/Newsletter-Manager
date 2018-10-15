@@ -41,8 +41,8 @@ app.use(function(req, res, next) {
     // if not https redirect to https unless logging in using OAuth
     if (reqType !== "http") {
       req.url.indexOf("auth/google") !== -1
-        ? next()
-        : res.redirect("http://" + req.headers.host + req.url);
+        ? res.redirect("http://" + req.headers.host + req.url)
+        : next();
     }
   } else {
     next();
