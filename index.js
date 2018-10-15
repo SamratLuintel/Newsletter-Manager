@@ -35,18 +35,11 @@ require("./routes/templateRoutes")(app);
 require("./routes/campaignRoutes")(app);
 require("./routes/profileRoutes")(app);
 
-app.use(function(req, res, next) {
-  if (process.env.NODE_ENV === "production") {
-    const reqType = req.headers["x-forwarded-proto"];
-    // if not https redirect to https unless logging in using OAuth
-    if (reqType !== "http") {
-      req.url.indexOf("auth/google") !== -1
-        ? next()
-        : res.redirect("http://" + req.headers.host + req.url);
-    }
-  } else {
-    next();
-  }
+http.get("*", function(req, res) {
+  res.redirect("https://" + req.headers.host + req.url);
+
+  // Or, if you don't want to automatically detect the domain name from the request header, you can hard code it:
+  // res.redirect('https://example.com' + req.url);
 });
 
 if (process.env.NODE_ENV === "production") {
@@ -55,6 +48,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
   const path = require("path");
+
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
