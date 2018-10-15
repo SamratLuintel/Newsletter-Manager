@@ -29,18 +29,6 @@ require("./models/Campaign");
 //loading the passport
 require("./services/passport");
 
-app.use(function(req, res, next) {
-  // if (process.env.NODE_ENV === "production") {
-  const reqType = req.headers["x-forwarded-proto"];
-  // if not https redirect to https unless logging in using OAuth
-  // if (reqType === "https") {
-  console.log("Middleware is called");
-  console.log("Routing all https to http", reqType);
-  if (reqType === "https") {
-    res.redirect("http://" + req.headers.host + req.url);
-  }
-});
-
 //loading the routes
 require("./routes/authRoutes")(app);
 require("./routes/templateRoutes")(app);
