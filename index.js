@@ -30,24 +30,14 @@ require("./models/Campaign");
 require("./services/passport");
 
 app.use(function(req, res, next) {
-  if (process.env.NODE_ENV === "production") {
-    const reqType = req.headers["x-forwarded-proto"];
-    // if not https redirect to https unless logging in using OAuth
-    // if (reqType === "https") {
-    if (reqType === "https") {
-      if (req.url.indexOf("auth/google") !== -1) {
-        res.redirect("http://" + req.headers.host + req.url);
-      }
-    }
-
-    if (reqType !== "https") {
-      req.url.indexOf("auth/google") !== -1
-        ? next()
-        : res.redirect("https://" + req.headers.host + req.url);
-      // }
-    } else {
-      next();
-    }
+  // if (process.env.NODE_ENV === "production") {
+  const reqType = req.headers["x-forwarded-proto"];
+  // if not https redirect to https unless logging in using OAuth
+  // if (reqType === "https") {
+  console.log("Middleware is called");
+  console.log("Routing all https to http", reqType);
+  if (reqType === "https") {
+    res.redirect("http://" + req.headers.host + req.url);
   }
 });
 
