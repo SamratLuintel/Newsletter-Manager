@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 const passport = require("passport");
+const https = require("https");
 const session = require("express-session");
-const cors = require("cors");
 const keys = require("./config/keys");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -14,7 +14,7 @@ app.use(
     saveUninitialized: true
   })
 );
-app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 mongoose
