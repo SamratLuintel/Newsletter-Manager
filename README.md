@@ -7,4 +7,4 @@ Hosted on:- https://emm-samrat.herokuapp.com/
 
 <br />
 <br />
-# UPDATE 2020. Since Google has abandoned their Google+, one might be unable to login to the app. I will be updating them shortly.
+# UPDATE 2020. Since Google has abandoned their Google+, one might be unable to login to the app as this application depends on that. I will be updating the app soon. 
